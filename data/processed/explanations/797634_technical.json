@@ -1,0 +1,17 @@
+{
+  "claim_id": "797634",
+  "decision": "deny",
+  "confidence": 0.696,
+  "fraud_probability": 0.8478234610921275,
+  "uncertainty": 0.15217057161631453,
+  "expected_value_by_action": {
+    "approve": 0.0,
+    "fast_track": 57.60852858081573,
+    "standard": 230.43411432326292,
+    "deep": 1152.1705716163146,
+    "deny": 115.21705716163146
+  },
+  "risk_score": 94,
+  "sla_hours": 72,
+  "requires_human_review": true
+}

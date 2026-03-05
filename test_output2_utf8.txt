@@ -1,0 +1,9 @@
+﻿| Endpoint             | Input                     | Output                     |
+| -------------------- | ------------------------- | -------------------------- |
+| `/health/`           | None                      | System status              |
+| `/predict/`          | Single claim JSON         | Error 500: {"detail":"'NoneType' object has no attribute 'get'"} |
+| `/batch/`            | Multiple claims JSON      | Error 500                  |
+| `/query/ask`         | Natural language query    | Error 500                  |
+| `/query/quick-check` | Claim data                | Error 500                  |
+| `/explain/{id}`      | Claim ID                  | Error 500                  |
+| `/feedback/`         | Correction data           | Error 500                  |

@@ -1,0 +1,18 @@
+{
+  "batch_id": "L3_20260305_104856",
+  "timestamp": "2026-03-05T10:48:56.555747",
+  "processing_time_seconds": 2.290539,
+  "record_count": 1000,
+  "output_files": {
+    "agent_decisions_csv": "data/processed\\agent_decisions.csv",
+    "explanations_dir": "data/processed\\explanations"
+  },
+  "aggregate_metrics": {
+    "action_distribution": {
+      "deny": 660,
+      "approve": 340
+    },
+    "requires_human_review_count": 660,
+    "avg_confidence": 0.9995329999999999
+  }
+}

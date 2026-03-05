@@ -1,0 +1,260 @@
+﻿python : 2026-03-04 
+20:14:54,623 - 
+layer4.runner - INFO 
+- Starting Layer 4 
+API on 
+127.0.0.1:8000...
+At line:1 char:79
++ ... ).OwningProcess 
+-Force; python 
+run_layer4.py > 
+server_errors.txt 2>&1
++                     
+        ~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (2026-03-04   
+  20:1...7.0.0.1:8    
+000...:String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+INFO:     Started 
+server process [11544]
+INFO:     Waiting for 
+application startup.
+2026-03-04 20:14:57 | 
+INFO     | layer4 | 
+StochClaim API 
+starting...
+2026-03-04 
+20:14:57,209 - layer4 
+- INFO - StochClaim 
+API starting...
+2026-03-04 20:14:57 | 
+INFO     | layer4 |   
+ API Key: ********-key
+2026-03-04 
+20:14:57,209 - layer4 
+- INFO -    API Key: 
+********-key
+2026-03-04 20:14:57 | 
+INFO     | layer4 |   
+ Rate Limit: 60/min
+2026-03-04 
+20:14:57,209 - layer4 
+- INFO -    Rate 
+Limit: 60/min
+INFO:     Application 
+startup complete.
+INFO:     Uvicorn 
+running on 
+http://127.0.0.1:8000 
+(Press CTRL+C to quit)
+2026-03-04 20:15:14 | 
+INFO     | layer4.api 
+| -> GET /health/ | 
+IP: 127.0.0.1
+2026-03-04 
+20:15:14,648 - 
+layer4.api - INFO - 
+-> GET /health/ | IP: 
+127.0.0.1
+2026-03-04 20:15:14 | 
+INFO     | layer4.api 
+| <- WARN GET 
+/health/ | Status: 
+404 | Duration: 0.001s
+2026-03-04 
+20:15:14,649 - 
+layer4.api - INFO - 
+<- WARN GET /health/ 
+| Status: 404 | 
+Duration: 0.001s
+INFO:     127.0.0.1:57563 - "GET /health/ HTTP/1.1" 404 Not Found
+2026-03-04 20:15:16 | 
+INFO     | layer4.api 
+| -> POST /predict/ | 
+IP: 127.0.0.1
+2026-03-04 
+20:15:16,698 - 
+layer4.api - INFO - 
+-> POST /predict/ | 
+IP: 127.0.0.1
+Loading Layer 1 Pipeline...
+Traceback (most 
+recent call last):
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\route
+rs\predict.py", line 
+16, in predict
+    pipeline = 
+get_pipeline()
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\depen
+dencies.py", line 46, 
+in get_pipeline
+    pipeline, _, _ = 
+_init_models()
+                     
+~~~~~~~~~~~~^^
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\depen
+dencies.py", line 25, 
+in _init_models
+    _pipeline = 
+Layer1Pipeline()
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer1\core\
+pipeline.py", line 
+33, in __init__
+    self.intake = Data
+Intake(config.get('int
+ake'))
+                      
+       ^^^^^^^^^^
+AttributeError: 
+'NoneType' object has 
+no attribute 'get'
+2026-03-04 20:15:16 | 
+INFO     | layer4.api 
+| <- FAIL POST 
+/predict/ | Status: 
+500 | Duration: 0.008s
+2026-03-04 
+20:15:16,706 - 
+layer4.api - INFO - 
+<- FAIL POST 
+/predict/ | Status: 
+500 | Duration: 0.008s
+INFO:     127.0.0.1:57567 - "POST /predict/ HTTP/1.1" 500 Internal Server Error
+2026-03-04 20:15:18 | 
+INFO     | layer4.api 
+| -> POST /batch/ | 
+IP: 127.0.0.1
+2026-03-04 
+20:15:18,737 - 
+layer4.api - INFO - 
+-> POST /batch/ | IP: 
+127.0.0.1
+2026-03-04 20:15:18 | 
+INFO     | layer4.api 
+| <- FAIL POST 
+/batch/ | Status: 500 
+| Duration: 0.005s
+2026-03-04 
+20:15:18,742 - 
+layer4.api - INFO - 
+<- FAIL POST /batch/ 
+| Status: 500 | 
+Duration: 0.005s
+Loading Layer 1 Pipeline...
+INFO:     127.0.0.1:57571 - "POST /batch/ HTTP/1.1" 500 Internal Server Error
+2026-03-04 20:15:20 | 
+INFO     | layer4.api 
+| -> POST /query/ask 
+| IP: 127.0.0.1
+2026-03-04 
+20:15:20,792 - 
+layer4.api - INFO - 
+-> POST /query/ask | 
+IP: 127.0.0.1
+2026-03-04 20:15:20 | 
+INFO     | layer4.api 
+| <- FAIL POST 
+/query/ask | Status: 
+500 | Duration: 0.006s
+2026-03-04 
+20:15:20,798 - 
+layer4.api - INFO - 
+<- FAIL POST 
+/query/ask | Status: 
+500 | Duration: 0.006s
+Loading Layer 1 Pipeline...
+INFO:     127.0.0.1:57573 - "POST /query/ask HTTP/1.1" 500 Internal Server Error
+2026-03-04 20:15:22 | 
+INFO     | layer4.api 
+| -> POST 
+/query/quick-check | 
+IP: 127.0.0.1
+2026-03-04 
+20:15:22,848 - 
+layer4.api - INFO - 
+-> POST 
+/query/quick-check | 
+IP: 127.0.0.1
+2026-03-04 20:15:22 | 
+INFO     | layer4.api 
+| <- FAIL POST 
+/query/quick-check | 
+Status: 500 | 
+Duration: 0.004s
+2026-03-04 
+20:15:22,852 - 
+layer4.api - INFO - 
+<- FAIL POST 
+/query/quick-check | 
+Status: 500 | 
+Duration: 0.004s
+Loading Layer 1 Pipeline...
+INFO:     127.0.0.1:57592 - "POST /query/quick-check HTTP/1.1" 500 Internal Server Error
+2026-03-04 20:15:24 | 
+INFO     | layer4.api 
+| -> GET 
+/explain/C00001 | IP: 
+127.0.0.1
+2026-03-04 
+20:15:24,901 - 
+layer4.api - INFO - 
+-> GET 
+/explain/C00001 | IP: 
+127.0.0.1
+2026-03-04 20:15:24 | 
+INFO     | layer4.api 
+| <- FAIL GET 
+/explain/C00001 | 
+Status: 500 | 
+Duration: 0.003s
+2026-03-04 
+20:15:24,905 - 
+layer4.api - INFO - 
+<- FAIL GET 
+/explain/C00001 | 
+Status: 500 | 
+Duration: 0.003s
+Loading Layer 1 Pipeline...
+INFO:     127.0.0.1:57597 - "GET /explain/C00001 HTTP/1.1" 500 Internal Server Error
+2026-03-04 20:15:26 | 
+INFO     | layer4.api 
+| -> POST /feedback/ 
+| IP: 127.0.0.1
+2026-03-04 
+20:15:26,943 - 
+layer4.api - INFO - 
+-> POST /feedback/ | 
+IP: 127.0.0.1
+2026-03-04 20:15:26 | 
+INFO     | layer4.api 
+| <- FAIL POST 
+/feedback/ | Status: 
+500 | Duration: 0.005s
+2026-03-04 
+20:15:26,947 - 
+layer4.api - INFO - 
+<- FAIL POST 
+/feedback/ | Status: 
+500 | Duration: 0.005s
+Loading Layer 1 Pipeline...
+INFO:     127.0.0.1:63827 - "POST /feedback/ HTTP/1.1" 500 Internal Server Error

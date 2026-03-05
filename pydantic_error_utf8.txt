@@ -1,0 +1,155 @@
+﻿python : Traceback 
+(most recent call 
+last):
+At line:1 char:1
++ python -c "from laye
+r4.routers.predict 
+import predict; from 
+layer4.mo ...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (Traceback    
+ (most recent call    
+ last)::String) [    
+], RemoteExceptio    n
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+  File "<string>", 
+line 1, in <module>
+    from layer4.router
+s.predict import 
+predict; from layer4.m
+odels.requests import 
+PredictRequest; 
+import asyncio; 
+request = PredictReque
+st(claim_id='C1', mont
+hs_as_customer=12, 
+age=30, 
+policy_number=123, pol
+icy_bind_date='2020-01
+-01', 
+policy_state='OH', 
+policy_csl='250/500', 
+policy_deductable=500,
+ policy_annual_premium
+=1000.0, 
+umbrella_limit=0, 
+insured_zip=12345, 
+insured_sex='M', insur
+ed_education_level='MD
+', insured_occupation=
+'sales', insured_hobbi
+es='chess', insured_re
+lationship='wife', 
+capital_gains=0, 
+capital_loss=0, incide
+nt_date='2021-01-01', 
+incident_type='Single 
+Vehicle Collision', 
+collision_type='Front 
+Collision', incident_s
+everity='Major 
+Damage', authorities_c
+ontacted='Police', 
+incident_state='OH', i
+ncident_city='Columbus
+', incident_location='
+123 Main St', incident
+_hour_of_the_day=12, n
+umber_of_vehicles_invo
+lved=1, property_damag
+e='YES', 
+bodily_injuries=0, 
+witnesses=0, police_re
+port_available='YES', 
+total_claim_amount=500
+0, injury_claim=1000, 
+property_claim=2000, 
+vehicle_claim=2000, 
+auto_make='Toyota', 
+auto_model='Camry', 
+auto_year=2015); async
+io.run(predict(request
+))
+                      
+                      
+                      
+                      
+                      
+               ~~~~~~~
+~~~~~~~^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\pydantic\main.py",
+ line 253, in __init__
+    validated_self = s
+elf.__pydantic_validat
+or__.validate_python(d
+ata, 
+self_instance=self)
+pydantic_core._pydanti
+c_core.ValidationError
+: 1 validation error 
+for PredictRequest
+witness_present
+  Field required 
+[type=missing, input_v
+alue={'claim_id': 
+'C1', 'month...mry', 
+'auto_year': 2015}, 
+input_type=dict]
+    For further 
+information visit http
+s://errors.pydantic.de
+v/2.11/v/missing

@@ -1,0 +1,118 @@
+# layer1/config/schema.yaml
+# YAML version of validation schema (alternative to Pydantic)
+
+claim_schema:
+  required_fields:
+    months_as_customer:
+      type: integer
+      min: 0
+      max: 600
+      description: "Months as customer"
+    
+    age:
+      type: integer
+      min: 16
+      max: 100
+      description: "Customer age"
+    
+    policy_annual_premium:
+      type: float
+      min: 0
+      description: "Annual insurance premium"
+    
+    incident_severity:
+      type: categorical
+      allowed: ["Trivial Damage", "Minor Damage", "Major Damage", "Total Loss"]
+      description: "Severity of incident"
+    
+    total_claim_amount:
+      type: float
+      min: 0
+      description: "Total claim amount"
+    
+    injury_claim:
+      type: float
+      min: 0
+      description: "Injury claim amount"
+    
+    property_claim:
+      type: float
+      min: 0
+      description: "Property damage claim"
+    
+    vehicle_claim:
+      type: float
+      min: 0
+      description: "Vehicle damage claim"
+    
+    incident_type:
+      type: categorical
+      allowed: ["Single Vehicle", "Multi-Vehicle", "Vehicle Theft", "Parked Car"]
+    
+    collision_type:
+      type: categorical
+      allowed: ["Front Collision", "Rear Collision", "Side Collision", "No Collision"]
+    
+    authorities_contacted:
+      type: categorical
+      allowed: ["Police", "Fire", "Ambulance", "None"]
+    
+    witness_present:
+      type: binary
+      mapping: {"Yes": 1, "No": 0}
+    
+    police_report_available:
+      type: categorical
+      allowed: ["Yes", "No", "Unknown"]
+      mapping: {"Yes": 1, "No": 0, "Unknown": -1}
+
+  derived_fields:
+    claim_to_premium_ratio:
+      formula: "total_claim_amount / policy_annual_premium"
+      description: "Ratio of claim to premium"
+    
+    injury_ratio:
+      formula: "injury_claim / total_claim_amount"
+      description: "Proportion of injury claim"
+    
+    red_flag_count:
+      description: "Count of fraud indicators"
+      rules:
+        - condition: "claim_to_premium_ratio > 10"
+          weight: 1
+        - condition: "witness_present == 'No'"
+          weight: 1
+        - condition: "police_report_available == 'No'"
+          weight: 1
+        - condition: "authorities_contacted == 'None'"
+          weight: 1
+
+  markov_states:
+    derivation_rules:
+      - state: "Fraud_Detected"
+        condition: "fraud_reported == 'Y'"
+        type: "absorbing"
+      
+      - state: "Approved"
+        condition: "claim_status == 'Closed' and settlement_amount > 0"
+        type: "absorbing"
+      
+      - state: "Denied"
+        condition: "claim_status == 'Closed' and settlement_amount == 0"
+        type: "absorbing"
+      
+      - state: "High_Risk_Investigation"
+        condition: "red_flag_count >= 3"
+        type: "transient"
+      
+      - state: "Standard_Investigation"
+        condition: "red_flag_count >= 1"
+        type: "transient"
+      
+      - state: "Complex_Review"
+        condition: "severity_score >= 3"
+        type: "transient"
+      
+      - state: "Fast_Track"
+        condition: "default"
+        type: "transient"

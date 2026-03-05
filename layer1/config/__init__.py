@@ -1,0 +1,32 @@
+# layer1/config/__init__.py
+"""
+Configuration module for Layer 1
+"""
+
+from .settings import (
+    BASE_DIR,
+    DATA_DIR,
+    RAW_DATA_DIR,
+    PROCESSED_DATA_DIR,
+    VALIDATION_LOGS_DIR,
+    VALIDATION_SETTINGS,
+    REQUIRED_COLUMNS,
+    OPTIONAL_COLUMNS,
+    FEATURE_SETTINGS,
+    MARKOV_STATES,
+    LOGGING_CONFIG
+)
+
+__all__ = [
+    'BASE_DIR',
+    'DATA_DIR',
+    'RAW_DATA_DIR',
+    'PROCESSED_DATA_DIR',
+    'VALIDATION_LOGS_DIR',
+    'VALIDATION_SETTINGS',
+    'REQUIRED_COLUMNS',
+    'OPTIONAL_COLUMNS',
+    'FEATURE_SETTINGS',
+    'MARKOV_STATES',
+    'LOGGING_CONFIG'
+]

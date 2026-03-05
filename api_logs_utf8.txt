@@ -1,0 +1,2698 @@
+﻿python : 2026-03-04 
+13:45:16,475 - 
+layer4.runner - INFO 
+- Starting Layer 4 
+API on 
+127.0.0.1:8000...
+At line:1 char:1
++ python 
+run_layer4.py > 
+api_logs.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (2026-03-04   
+  13:4...7.0.0.1:8    
+000...:String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+INFO:     Started 
+server process [24204]
+INFO:     Waiting for 
+application startup.
+2026-03-04 13:45:18 | 
+INFO     | layer4 | 
+\U0001f680 StochClaim 
+API starting...
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\U0001f680' in 
+position 42: 
+character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\lifespan\o
+n.py", line 86, in 
+main
+    await app(scope, 
+self.receive, 
+self.send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\middleware
+\proxy_headers.py", 
+line 29, in __call__
+    return await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\applicatio
+ns.py", line 1160, in 
+__call__
+    await super().__ca
+ll__(scope, receive, 
+send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\applicat
+ions.py", line 107, 
+in __call__
+    await self.middlew
+are_stack(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\errors.py", line 
+151, in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+103, in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+103, in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 79, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+103, in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+103, in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\exceptions.py", 
+line 49, in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\middleware
+\asyncexitstack.py", 
+line 18, in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\routing.
+py", line 716, in 
+__call__
+    await self.middlew
+are_stack(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\routing.
+py", line 725, in app
+    await 
+self.lifespan(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\routing.
+py", line 694, in 
+lifespan
+    async with self.li
+fespan_context(app) 
+as maybe_state:
+  File "C:\Program Fil
+es\Python313\Lib\conte
+xtlib.py", line 214, 
+in __aenter__
+    return await 
+anext(self.gen)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 204, in 
+merged_lifespan
+    async with 
+original_context(app) 
+as 
+maybe_original_state:
+  File "C:\Program Fil
+es\Python313\Lib\conte
+xtlib.py", line 214, 
+in __aenter__
+    return await 
+anext(self.gen)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 204, in 
+merged_lifespan
+    async with 
+original_context(app) 
+as 
+maybe_original_state:
+  File "C:\Program Fil
+es\Python313\Lib\conte
+xtlib.py", line 214, 
+in __aenter__
+    return await 
+anext(self.gen)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 204, in 
+merged_lifespan
+    async with 
+original_context(app) 
+as 
+maybe_original_state:
+  File "C:\Program Fil
+es\Python313\Lib\conte
+xtlib.py", line 214, 
+in __aenter__
+    return await 
+anext(self.gen)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 204, in 
+merged_lifespan
+    async with 
+original_context(app) 
+as 
+maybe_original_state:
+  File "C:\Program Fil
+es\Python313\Lib\conte
+xtlib.py", line 214, 
+in __aenter__
+    return await 
+anext(self.gen)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 204, in 
+merged_lifespan
+    async with 
+original_context(app) 
+as 
+maybe_original_state:
+  File "C:\Program Fil
+es\Python313\Lib\conte
+xtlib.py", line 214, 
+in __aenter__
+    return await 
+anext(self.gen)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 204, in 
+merged_lifespan
+    async with 
+original_context(app) 
+as 
+maybe_original_state:
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 229, in 
+__aenter__
+    await self._router
+._startup()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 4730, in 
+_startup
+    await handler()
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\main.
+py", line 50, in 
+startup
+    logger.info("\U000
+1f680 StochClaim API 
+starting...")
+Message: '\U0001f680 
+StochClaim API 
+starting...'
+Arguments: ()
+2026-03-04 
+13:45:18,488 - layer4 
+- INFO - \U0001f680 
+StochClaim API 
+starting...
+2026-03-04 13:45:18 | 
+INFO     | layer4 |   
+ API Key: ********-key
+2026-03-04 
+13:45:18,495 - layer4 
+- INFO -    API Key: 
+********-key
+2026-03-04 13:45:18 | 
+INFO     | layer4 |   
+ Rate Limit: 60/min
+2026-03-04 
+13:45:18,495 - layer4 
+- INFO -    Rate 
+Limit: 60/min
+INFO:     Application 
+startup complete.
+INFO:     Uvicorn 
+running on 
+http://127.0.0.1:8000 
+(Press CTRL+C to quit)
+2026-03-04 13:45:44 | 
+INFO     | layer4.api 
+| \u2192 GET /health/ 
+| IP: 127.0.0.1
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\u2192' in position 
+46: character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+144, in coro
+    await 
+self.app(scope, receiv
+e_or_disconnect, 
+send_no_error)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 87, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+193, in __call__
+    response = await s
+elf.dispatch_func(requ
+est, call_next)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\middl
+eware\logging.py", 
+line 38, in dispatch
+    
+logger.info(f"\u2192 
+{method} {path} | IP: 
+{client_ip}")
+Message: '\u2192 GET 
+/health/ | IP: 
+127.0.0.1'
+Arguments: ()
+2026-03-04 
+13:45:44,811 - 
+layer4.api - INFO - 
+\u2192 GET /health/ | 
+IP: 127.0.0.1
+2026-03-04 13:45:44 | 
+INFO     | layer4.api 
+| \u2190 \u26a0\ufe0f 
+GET /health/ | 
+Status: 404 | 
+Duration: 0.002s
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\u2190' in position 
+46: character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+144, in coro
+    await 
+self.app(scope, receiv
+e_or_disconnect, 
+send_no_error)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 87, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+193, in __call__
+    response = await s
+elf.dispatch_func(requ
+est, call_next)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\middl
+eware\logging.py", 
+line 51, in dispatch
+    logger.info(
+Message: '\u2190 
+\u26a0\ufe0f GET 
+/health/ | Status: 
+404 | Duration: 
+0.002s'
+Arguments: ()
+2026-03-04 
+13:45:44,812 - 
+layer4.api - INFO - 
+\u2190 \u26a0\ufe0f 
+GET /health/ | 
+Status: 404 | 
+Duration: 0.002s
+INFO:     127.0.0.1:54278 - "GET /health/ HTTP/1.1" 404 Not Found
+2026-03-04 13:45:46 | 
+INFO     | layer4.api 
+| \u2192 POST 
+/predict/ | IP: 
+127.0.0.1
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\u2192' in position 
+46: character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+144, in coro
+    await 
+self.app(scope, receiv
+e_or_disconnect, 
+send_no_error)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 87, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+193, in __call__
+    response = await s
+elf.dispatch_func(requ
+est, call_next)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\middl
+eware\logging.py", 
+line 38, in dispatch
+    
+logger.info(f"\u2192 
+{method} {path} | IP: 
+{client_ip}")
+Message: '\u2192 POST 
+/predict/ | IP: 
+127.0.0.1'
+Arguments: ()
+2026-03-04 
+13:45:46,865 - 
+layer4.api - INFO - 
+\u2192 POST /predict/ 
+| IP: 127.0.0.1
+Traceback (most 
+recent call last):
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\route
+rs\predict.py", line 
+16, in predict
+    pipeline = 
+get_pipeline()
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\depen
+dencies.py", line 46, 
+in get_pipeline
+    pipeline, _, _ = 
+_init_models()
+                     
+~~~~~~~~~~~~^^
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\depen
+dencies.py", line 24, 
+in _init_models
+    print("\U0001f527 
+Loading Layer 1 
+Pipeline...")
+    ~~~~~^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\U0001f527' in 
+position 0: character 
+maps to <undefined>
+2026-03-04 13:45:46 | 
+INFO     | layer4.api 
+| \u2190 \u274c POST 
+/predict/ | Status: 
+500 | Duration: 0.007s
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\u2190' in position 
+46: character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+144, in coro
+    await 
+self.app(scope, receiv
+e_or_disconnect, 
+send_no_error)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 87, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+193, in __call__
+    response = await s
+elf.dispatch_func(requ
+est, call_next)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\middl
+eware\logging.py", 
+line 51, in dispatch
+    logger.info(
+Message: '\u2190 
+\u274c POST /predict/ 
+| Status: 500 | 
+Duration: 0.007s'
+Arguments: ()
+2026-03-04 
+13:45:46,872 - 
+layer4.api - INFO - 
+\u2190 \u274c POST 
+/predict/ | Status: 
+500 | Duration: 0.007s
+INFO:     127.0.0.1:54282 - "POST /predict/ HTTP/1.1" 500 Internal Server Error
+2026-03-04 13:45:48 | 
+INFO     | layer4.api 
+| \u2192 POST /batch/ 
+| IP: 127.0.0.1
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\u2192' in position 
+46: character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+144, in coro
+    await 
+self.app(scope, receiv
+e_or_disconnect, 
+send_no_error)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 87, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+193, in __call__
+    response = await s
+elf.dispatch_func(requ
+est, call_next)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\middl
+eware\logging.py", 
+line 38, in dispatch
+    
+logger.info(f"\u2192 
+{method} {path} | IP: 
+{client_ip}")
+Message: '\u2192 POST 
+/batch/ | IP: 
+127.0.0.1'
+Arguments: ()
+2026-03-04 
+13:45:48,923 - 
+layer4.api - INFO - 
+\u2192 POST /batch/ | 
+IP: 127.0.0.1
+2026-03-04 13:45:48 | 
+INFO     | layer4.api 
+| \u2190 \u274c POST 
+/batch/ | Status: 500 
+| Duration: 0.006s
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\u2190' in position 
+46: character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+144, in coro
+    await 
+self.app(scope, receiv
+e_or_disconnect, 
+send_no_error)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 87, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+193, in __call__
+    response = await s
+elf.dispatch_func(requ
+est, call_next)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\middl
+eware\logging.py", 
+line 51, in dispatch
+    logger.info(
+Message: '\u2190 
+\u274c POST /batch/ | 
+Status: 500 | 
+Duration: 0.006s'
+Arguments: ()
+2026-03-04 
+13:45:48,929 - 
+layer4.api - INFO - 
+\u2190 \u274c POST 
+/batch/ | Status: 500 
+| Duration: 0.006s
+INFO:     127.0.0.1:54287 - "POST /batch/ HTTP/1.1" 500 Internal Server Error
+2026-03-04 13:45:50 | 
+INFO     | layer4.api 
+| \u2192 POST 
+/query/ask | IP: 
+127.0.0.1
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\u2192' in position 
+46: character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+144, in coro
+    await 
+self.app(scope, receiv
+e_or_disconnect, 
+send_no_error)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 87, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+193, in __call__
+    response = await s
+elf.dispatch_func(requ
+est, call_next)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\middl
+eware\logging.py", 
+line 38, in dispatch
+    
+logger.info(f"\u2192 
+{method} {path} | IP: 
+{client_ip}")
+Message: '\u2192 POST 
+/query/ask | IP: 
+127.0.0.1'
+Arguments: ()
+2026-03-04 
+13:45:50,993 - 
+layer4.api - INFO - 
+\u2192 POST 
+/query/ask | IP: 
+127.0.0.1
+2026-03-04 13:45:50 | 
+INFO     | layer4.api 
+| \u2190 \u274c POST 
+/query/ask | Status: 
+500 | Duration: 0.005s
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\u2190' in position 
+46: character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+144, in coro
+    await 
+self.app(scope, receiv
+e_or_disconnect, 
+send_no_error)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 87, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+193, in __call__
+    response = await s
+elf.dispatch_func(requ
+est, call_next)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\middl
+eware\logging.py", 
+line 51, in dispatch
+    logger.info(
+Message: '\u2190 
+\u274c POST 
+/query/ask | Status: 
+500 | Duration: 
+0.005s'
+Arguments: ()
+2026-03-04 
+13:45:50,998 - 
+layer4.api - INFO - 
+\u2190 \u274c POST 
+/query/ask | Status: 
+500 | Duration: 0.005s
+INFO:     127.0.0.1:54290 - "POST /query/ask HTTP/1.1" 500 Internal Server Error
+2026-03-04 13:45:53 | 
+INFO     | layer4.api 
+| \u2192 POST 
+/query/quick-check | 
+IP: 127.0.0.1
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\u2192' in position 
+46: character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+144, in coro
+    await 
+self.app(scope, receiv
+e_or_disconnect, 
+send_no_error)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 87, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+193, in __call__
+    response = await s
+elf.dispatch_func(requ
+est, call_next)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\middl
+eware\logging.py", 
+line 38, in dispatch
+    
+logger.info(f"\u2192 
+{method} {path} | IP: 
+{client_ip}")
+Message: '\u2192 POST 
+/query/quick-check | 
+IP: 127.0.0.1'
+Arguments: ()
+2026-03-04 
+13:45:53,019 - 
+layer4.api - INFO - 
+\u2192 POST 
+/query/quick-check | 
+IP: 127.0.0.1
+INFO:     127.0.0.1:54293 - "POST /query/quick-check HTTP/1.1" 500 Internal Server Error
+2026-03-04 13:45:53 | 
+INFO     | layer4.api 
+| \u2190 \u274c POST 
+/query/quick-check | 
+Status: 500 | 
+Duration: 0.004s
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\u2190' in position 
+46: character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+144, in coro
+    await 
+self.app(scope, receiv
+e_or_disconnect, 
+send_no_error)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 87, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+193, in __call__
+    response = await s
+elf.dispatch_func(requ
+est, call_next)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\middl
+eware\logging.py", 
+line 51, in dispatch
+    logger.info(
+Message: '\u2190 
+\u274c POST 
+/query/quick-check | 
+Status: 500 | 
+Duration: 0.004s'
+Arguments: ()
+2026-03-04 
+13:45:53,023 - 
+layer4.api - INFO - 
+\u2190 \u274c POST 
+/query/quick-check | 
+Status: 500 | 
+Duration: 0.004s
+2026-03-04 13:45:55 | 
+INFO     | layer4.api 
+| \u2192 GET 
+/explain/C00001 | IP: 
+127.0.0.1
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\u2192' in position 
+46: character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+144, in coro
+    await 
+self.app(scope, receiv
+e_or_disconnect, 
+send_no_error)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 87, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+193, in __call__
+    response = await s
+elf.dispatch_func(requ
+est, call_next)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\middl
+eware\logging.py", 
+line 38, in dispatch
+    
+logger.info(f"\u2192 
+{method} {path} | IP: 
+{client_ip}")
+Message: '\u2192 GET 
+/explain/C00001 | IP: 
+127.0.0.1'
+Arguments: ()
+2026-03-04 
+13:45:55,072 - 
+layer4.api - INFO - 
+\u2192 GET 
+/explain/C00001 | IP: 
+127.0.0.1
+2026-03-04 13:45:55 | 
+INFO     | layer4.api 
+| \u2190 \u274c GET 
+/explain/C00001 | 
+Status: 500 | 
+Duration: 0.003s
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\u2190' in position 
+46: character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+144, in coro
+    await 
+self.app(scope, receiv
+e_or_disconnect, 
+send_no_error)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 87, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+193, in __call__
+    response = await s
+elf.dispatch_func(requ
+est, call_next)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\middl
+eware\logging.py", 
+line 51, in dispatch
+    logger.info(
+Message: '\u2190 
+\u274c GET 
+/explain/C00001 | 
+Status: 500 | 
+Duration: 0.003s'
+Arguments: ()
+2026-03-04 
+13:45:55,075 - 
+layer4.api - INFO - 
+\u2190 \u274c GET 
+/explain/C00001 | 
+Status: 500 | 
+Duration: 0.003s
+INFO:     127.0.0.1:54296 - "GET /explain/C00001 HTTP/1.1" 500 Internal Server Error
+2026-03-04 13:45:57 | 
+INFO     | layer4.api 
+| \u2192 POST 
+/feedback/ | IP: 
+127.0.0.1
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\u2192' in position 
+46: character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+144, in coro
+    await 
+self.app(scope, receiv
+e_or_disconnect, 
+send_no_error)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 87, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+193, in __call__
+    response = await s
+elf.dispatch_func(requ
+est, call_next)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\middl
+eware\logging.py", 
+line 38, in dispatch
+    
+logger.info(f"\u2192 
+{method} {path} | IP: 
+{client_ip}")
+Message: '\u2192 POST 
+/feedback/ | IP: 
+127.0.0.1'
+Arguments: ()
+2026-03-04 
+13:45:57,126 - 
+layer4.api - INFO - 
+\u2192 POST 
+/feedback/ | IP: 
+127.0.0.1
+2026-03-04 13:45:57 | 
+INFO     | layer4.api 
+| \u2190 \u274c POST 
+/feedback/ | Status: 
+500 | Duration: 0.005s
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\u2190' in position 
+46: character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+144, in coro
+    await 
+self.app(scope, receiv
+e_or_disconnect, 
+send_no_error)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 87, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+193, in __call__
+    response = await s
+elf.dispatch_func(requ
+est, call_next)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\middl
+eware\logging.py", 
+line 51, in dispatch
+    logger.info(
+Message: '\u2190 
+\u274c POST 
+/feedback/ | Status: 
+500 | Duration: 
+0.005s'
+Arguments: ()
+2026-03-04 
+13:45:57,131 - 
+layer4.api - INFO - 
+\u2190 \u274c POST 
+/feedback/ | Status: 
+500 | Duration: 0.005s
+INFO:     127.0.0.1:54315 - "POST /feedback/ HTTP/1.1" 500 Internal Server Error

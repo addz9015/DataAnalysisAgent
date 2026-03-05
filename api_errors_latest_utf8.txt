@@ -1,0 +1,114 @@
+﻿python : 2026-03-04 19:59:38,654 - layer4.runner - INFO - Starting Layer 4 API on 127.0.0.1:8000...
+At line:1 char:1
++ python run_layer4.py > api_errors_latest.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo              : NotSpeci    fied: (2026-03-04     19:5...7.0.0.1:8    000...:String) []    , RemoteException
+    + FullyQualifiedE    rrorId : NativeCo    mmandError
+ 
+INFO:     Started server process [12884]
+INFO:     Waiting for application startup.
+2026-03-04 19:59:47 | INFO     | layer4 | \U0001f680 StochClaim API starting...
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python313\Lib\logging\__init__.py", line 1153, in emit
+    stream.write(msg + self.terminator)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f680' in position 42: character maps to <undefined>
+Call stack:
+  File "C:\Users\Ritarshi Roy\Downloads\STPA\STPA\stochclaim\run_layer4.py", line 66, in <module>
+    run_layer4(host=args.host, port=args.port, reload=args.reload)
+  File "C:\Users\Ritarshi Roy\Downloads\STPA\STPA\stochclaim\run_layer4.py", line 50, in run_layer4
+    uvicorn.run(
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\uvicorn\main.py", line 606, in run
+    server.run()
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\uvicorn\server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+  File "C:\Program Files\Python313\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Program Files\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Program Files\Python313\Lib\asyncio\base_events.py", line 707, in run_until_complete
+    self.run_forever()
+  File "C:\Program Files\Python313\Lib\asyncio\base_events.py", line 678, in run_forever
+    self._run_once()
+  File "C:\Program Files\Python313\Lib\asyncio\base_events.py", line 2033, in _run_once
+    handle._run()
+  File "C:\Program Files\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\uvicorn\lifespan\on.py", line 86, in main
+    await app(scope, self.receive, self.send)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\uvicorn\middleware\proxy_headers.py", line 29, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\fastapi\applications.py", line 1160, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\starlette\middleware\errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\starlette\middleware\base.py", line 103, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\starlette\middleware\base.py", line 103, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\starlette\middleware\cors.py", line 79, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\starlette\middleware\base.py", line 103, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\starlette\middleware\base.py", line 103, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\starlette\middleware\exceptions.py", line 49, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\starlette\routing.py", line 725, in app
+    await self.lifespan(scope, receive, send)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\starlette\routing.py", line 694, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\fastapi\routing.py", line 204, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\fastapi\routing.py", line 204, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\fastapi\routing.py", line 204, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\fastapi\routing.py", line 204, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\fastapi\routing.py", line 204, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\fastapi\routing.py", line 204, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\fastapi\routing.py", line 229, in __aenter__
+    await self._router._startup()
+  File "C:\Users\Ritarshi Roy\AppData\Roaming\Python\Python313\site-packages\fastapi\routing.py", line 4730, in _startup
+    await handler()
+  File "C:\Users\Ritarshi Roy\Downloads\STPA\STPA\stochclaim\layer4\main.py", line 50, in startup
+    logger.info("\U0001f680 StochClaim API starting...")
+Message: '\U0001f680 StochClaim API starting...'
+Arguments: ()
+2026-03-04 19:59:47,742 - layer4 - INFO - \U0001f680 StochClaim API starting...
+2026-03-04 19:59:48 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 19:59:48,360 - layer4 - INFO -    API Key: ********-key
+2026-03-04 19:59:48 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 19:59:48,361 - layer4 - INFO -    Rate Limit: 60/min
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-03-04 19:59:57 | INFO     | layer4.api | -> GET /health/ | IP: 127.0.0.1
+2026-03-04 19:59:57,213 - layer4.api - INFO - -> GET /health/ | IP: 127.0.0.1
+2026-03-04 19:59:57 | INFO     | layer4.api | <- WARN GET /health/ | Status: 404 | Duration: 0.002s
+2026-03-04 19:59:57,215 - layer4.api - INFO - <- WARN GET /health/ | Status: 404 | Duration: 0.002s
+INFO:     127.0.0.1:56195 - "GET /health/ HTTP/1.1" 404 Not Found

@@ -1,0 +1,663 @@
+﻿python : 2026-03-04 
+13:52:46,178 - 
+layer4.runner - INFO 
+- Starting Layer 4 
+API on 
+127.0.0.1:8000...
+At line:1 char:1
++ python 
+run_layer4.py > 
+api_errors.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (2026-03-04   
+  13:5...7.0.0.1:8    
+000...:String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+INFO:     Started 
+server process [4608]
+INFO:     Waiting for 
+application startup.
+2026-03-04 13:52:48 | 
+INFO     | layer4 | 
+\U0001f680 StochClaim 
+API starting...
+--- Logging error ---
+Traceback (most 
+recent call last):
+  File "C:\Program Fil
+es\Python313\Lib\loggi
+ng\__init__.py", line 
+1153, in emit
+    stream.write(msg 
++ self.terminator)
+    ~~~~~~~~~~~~^^^^^^
+^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\U0001f680' in 
+position 42: 
+character maps to 
+<undefined>
+Call stack:
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 66, in 
+<module>
+    run_layer4(host=ar
+gs.host, 
+port=args.port, 
+reload=args.reload)
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\run_layer4.p
+y", line 50, in 
+run_layer4
+    uvicorn.run(
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\main.py", 
+line 606, in run
+    server.run()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\server.py"
+, line 75, in run
+    return asyncio_run
+(self.serve(sockets=so
+ckets), loop_factory=s
+elf.config.get_loop_fa
+ctory())
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+194, in run
+    return 
+runner.run(main)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\runners.py", line 
+118, in run
+    return self._loop.
+run_until_complete(tas
+k)
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 707, in 
+run_until_complete
+    self.run_forever()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 678, in 
+run_forever
+    self._run_once()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\base_events.py", 
+line 2033, in 
+_run_once
+    handle._run()
+  File "C:\Program Fil
+es\Python313\Lib\async
+io\events.py", line 
+89, in _run
+    self._context.run(
+self._callback, 
+*self._args)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\lifespan\o
+n.py", line 86, in 
+main
+    await app(scope, 
+self.receive, 
+self.send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\uvicorn\middleware
+\proxy_headers.py", 
+line 29, in __call__
+    return await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\applicatio
+ns.py", line 1160, in 
+__call__
+    await super().__ca
+ll__(scope, receive, 
+send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\applicat
+ions.py", line 107, 
+in __call__
+    await self.middlew
+are_stack(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\errors.py", line 
+151, in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+103, in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+103, in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\cors.py", line 79, 
+in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+103, in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\base.py", line 
+103, in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\middlewa
+re\exceptions.py", 
+line 49, in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\middleware
+\asyncexitstack.py", 
+line 18, in __call__
+    await 
+self.app(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\routing.
+py", line 716, in 
+__call__
+    await self.middlew
+are_stack(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\routing.
+py", line 725, in app
+    await 
+self.lifespan(scope, 
+receive, send)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\starlette\routing.
+py", line 694, in 
+lifespan
+    async with self.li
+fespan_context(app) 
+as maybe_state:
+  File "C:\Program Fil
+es\Python313\Lib\conte
+xtlib.py", line 214, 
+in __aenter__
+    return await 
+anext(self.gen)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 204, in 
+merged_lifespan
+    async with 
+original_context(app) 
+as 
+maybe_original_state:
+  File "C:\Program Fil
+es\Python313\Lib\conte
+xtlib.py", line 214, 
+in __aenter__
+    return await 
+anext(self.gen)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 204, in 
+merged_lifespan
+    async with 
+original_context(app) 
+as 
+maybe_original_state:
+  File "C:\Program Fil
+es\Python313\Lib\conte
+xtlib.py", line 214, 
+in __aenter__
+    return await 
+anext(self.gen)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 204, in 
+merged_lifespan
+    async with 
+original_context(app) 
+as 
+maybe_original_state:
+  File "C:\Program Fil
+es\Python313\Lib\conte
+xtlib.py", line 214, 
+in __aenter__
+    return await 
+anext(self.gen)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 204, in 
+merged_lifespan
+    async with 
+original_context(app) 
+as 
+maybe_original_state:
+  File "C:\Program Fil
+es\Python313\Lib\conte
+xtlib.py", line 214, 
+in __aenter__
+    return await 
+anext(self.gen)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 204, in 
+merged_lifespan
+    async with 
+original_context(app) 
+as 
+maybe_original_state:
+  File "C:\Program Fil
+es\Python313\Lib\conte
+xtlib.py", line 214, 
+in __aenter__
+    return await 
+anext(self.gen)
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 204, in 
+merged_lifespan
+    async with 
+original_context(app) 
+as 
+maybe_original_state:
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 229, in 
+__aenter__
+    await self._router
+._startup()
+  File 
+"C:\Users\Ritarshi Roy
+\AppData\Roaming\Pytho
+n\Python313\site-packa
+ges\fastapi\routing.py
+", line 4730, in 
+_startup
+    await handler()
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\main.
+py", line 50, in 
+startup
+    logger.info("\U000
+1f680 StochClaim API 
+starting...")
+Message: '\U0001f680 
+StochClaim API 
+starting...'
+Arguments: ()
+2026-03-04 
+13:52:48,182 - layer4 
+- INFO - \U0001f680 
+StochClaim API 
+starting...
+2026-03-04 13:52:48 | 
+INFO     | layer4 |   
+ API Key: ********-key
+2026-03-04 
+13:52:48,189 - layer4 
+- INFO -    API Key: 
+********-key
+2026-03-04 13:52:48 | 
+INFO     | layer4 |   
+ Rate Limit: 60/min
+2026-03-04 
+13:52:48,189 - layer4 
+- INFO -    Rate 
+Limit: 60/min
+INFO:     Application 
+startup complete.
+INFO:     Uvicorn 
+running on 
+http://127.0.0.1:8000 
+(Press CTRL+C to quit)
+2026-03-04 13:53:02 | 
+INFO     | layer4.api 
+| -> POST /query/ask 
+| IP: 127.0.0.1
+2026-03-04 
+13:53:02,838 - 
+layer4.api - INFO - 
+-> POST /query/ask | 
+IP: 127.0.0.1
+2026-03-04 13:53:02 | 
+INFO     | layer4.api 
+| <- FAIL POST 
+/query/ask | Status: 
+500 | Duration: 0.004s
+2026-03-04 
+13:53:02,842 - 
+layer4.api - INFO - 
+<- FAIL POST 
+/query/ask | Status: 
+500 | Duration: 0.004s
+INFO:     127.0.0.1:62011 - "POST /query/ask HTTP/1.1" 500 Internal Server Error
+2026-03-04 13:53:19 | 
+INFO     | layer4.api 
+| -> GET /health/ | 
+IP: 127.0.0.1
+2026-03-04 
+13:53:19,819 - 
+layer4.api - INFO - 
+-> GET /health/ | IP: 
+127.0.0.1
+2026-03-04 13:53:19 | 
+INFO     | layer4.api 
+| <- WARN GET 
+/health/ | Status: 
+404 | Duration: 0.001s
+2026-03-04 
+13:53:19,819 - 
+layer4.api - INFO - 
+<- WARN GET /health/ 
+| Status: 404 | 
+Duration: 0.001s
+INFO:     127.0.0.1:65009 - "GET /health/ HTTP/1.1" 404 Not Found
+2026-03-04 13:53:23 | 
+INFO     | layer4.api 
+| -> POST 
+/query/quick-check | 
+IP: 127.0.0.1
+2026-03-04 
+13:53:23,897 - 
+layer4.api - INFO - 
+-> POST 
+/query/quick-check | 
+IP: 127.0.0.1
+2026-03-04 13:53:23 | 
+INFO     | layer4.api 
+| <- FAIL POST 
+/query/quick-check | 
+Status: 500 | 
+Duration: 0.003s
+2026-03-04 
+13:53:23,900 - 
+layer4.api - INFO - 
+<- FAIL POST 
+/query/quick-check | 
+Status: 500 | 
+Duration: 0.003s
+INFO:     127.0.0.1:65014 - "POST /query/quick-check HTTP/1.1" 500 Internal Server Error
+2026-03-04 13:53:40 | 
+INFO     | layer4.api 
+| -> POST /predict/ | 
+IP: 127.0.0.1
+2026-03-04 
+13:53:40,862 - 
+layer4.api - INFO - 
+-> POST /predict/ | 
+IP: 127.0.0.1
+Traceback (most 
+recent call last):
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\route
+rs\predict.py", line 
+16, in predict
+    pipeline = 
+get_pipeline()
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\depen
+dencies.py", line 46, 
+in get_pipeline
+    pipeline, _, _ = 
+_init_models()
+                     
+~~~~~~~~~~~~^^
+  File 
+"C:\Users\Ritarshi Roy
+\Downloads\STPA\STPA\s
+tochclaim\layer4\depen
+dencies.py", line 24, 
+in _init_models
+    print("\U0001f527 
+Loading Layer 1 
+Pipeline...")
+    ~~~~~^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Fil
+es\Python313\Lib\encod
+ings\cp1252.py", line 
+19, in encode
+    return codecs.char
+map_encode(input,self.
+errors,encoding_table)
+[0]
+           ~~~~~~~~~~~
+~~~~~~~~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character 
+'\U0001f527' in 
+position 0: character 
+maps to <undefined>
+2026-03-04 13:53:40 | 
+INFO     | layer4.api 
+| <- FAIL POST 
+/predict/ | Status: 
+500 | Duration: 0.007s
+2026-03-04 
+13:53:40,869 - 
+layer4.api - INFO - 
+<- FAIL POST 
+/predict/ | Status: 
+500 | Duration: 0.007s
+INFO:     127.0.0.1:49264 - "POST /predict/ HTTP/1.1" 500 Internal Server Error
+2026-03-04 13:53:44 | 
+INFO     | layer4.api 
+| -> GET 
+/explain/C00001 | IP: 
+127.0.0.1
+2026-03-04 
+13:53:44,942 - 
+layer4.api - INFO - 
+-> GET 
+/explain/C00001 | IP: 
+127.0.0.1
+2026-03-04 13:53:44 | 
+INFO     | layer4.api 
+| <- FAIL GET 
+/explain/C00001 | 
+Status: 500 | 
+Duration: 0.002s
+2026-03-04 
+13:53:44,945 - 
+layer4.api - INFO - 
+<- FAIL GET 
+/explain/C00001 | 
+Status: 500 | 
+Duration: 0.002s
+INFO:     127.0.0.1:64138 - "GET /explain/C00001 HTTP/1.1" 500 Internal Server Error
+2026-03-04 13:54:01 | 
+INFO     | layer4.api 
+| -> POST /batch/ | 
+IP: 127.0.0.1
+2026-03-04 
+13:54:01,918 - 
+layer4.api - INFO - 
+-> POST /batch/ | IP: 
+127.0.0.1
+2026-03-04 13:54:01 | 
+INFO     | layer4.api 
+| <- FAIL POST 
+/batch/ | Status: 500 
+| Duration: 0.003s
+2026-03-04 
+13:54:01,921 - 
+layer4.api - INFO - 
+<- FAIL POST /batch/ 
+| Status: 500 | 
+Duration: 0.003s
+INFO:     127.0.0.1:63892 - "POST /batch/ HTTP/1.1" 500 Internal Server Error
+2026-03-04 13:54:05 | 
+INFO     | layer4.api 
+| -> POST /feedback/ 
+| IP: 127.0.0.1
+2026-03-04 
+13:54:05,985 - 
+layer4.api - INFO - 
+-> POST /feedback/ | 
+IP: 127.0.0.1
+2026-03-04 13:54:05 | 
+INFO     | layer4.api 
+| <- FAIL POST 
+/feedback/ | Status: 
+500 | Duration: 0.004s
+2026-03-04 
+13:54:05,989 - 
+layer4.api - INFO - 
+<- FAIL POST 
+/feedback/ | Status: 
+500 | Duration: 0.004s
+INFO:     127.0.0.1:63896 - "POST /feedback/ HTTP/1.1" 500 Internal Server Error
+2026-03-04 13:54:22 | 
+INFO     | layer4.api 
+| -> POST /query/ask 
+| IP: 127.0.0.1
+2026-03-04 
+13:54:22,967 - 
+layer4.api - INFO - 
+-> POST /query/ask | 
+IP: 127.0.0.1
+2026-03-04 13:54:22 | 
+INFO     | layer4.api 
+| <- FAIL POST 
+/query/ask | Status: 
+500 | Duration: 0.003s
+2026-03-04 
+13:54:22,971 - 
+layer4.api - INFO - 
+<- FAIL POST 
+/query/ask | Status: 
+500 | Duration: 0.003s
+INFO:     127.0.0.1:58407 - "POST /query/ask HTTP/1.1" 500 Internal Server Error

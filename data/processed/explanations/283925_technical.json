@@ -1,0 +1,17 @@
+{
+  "claim_id": "283925",
+  "decision": "approve",
+  "confidence": 1.0,
+  "fraud_probability": 0.0,
+  "uncertainty": 1.693480101608806e-05,
+  "expected_value_by_action": {
+    "approve": 0.0,
+    "fast_track": 50.00084674005081,
+    "standard": 200.00338696020324,
+    "deep": 1000.0169348010162,
+    "deny": 100.00169348010162
+  },
+  "risk_score": 0,
+  "sla_hours": 24,
+  "requires_human_review": false
+}

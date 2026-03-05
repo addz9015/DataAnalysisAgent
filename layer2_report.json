@@ -1,0 +1,91 @@
+{
+  "batch_id": "L2_20260305_104914",
+  "timestamp": "2026-03-05T10:49:14.303789",
+  "processing_time_seconds": 0.457793,
+  "record_count": 1000,
+  "model_summaries": {
+    "markov_chain": {
+      "n_states": 4,
+      "states": [
+        "Complex_Review",
+        "Fast_Track",
+        "Fraud_Detected",
+        "Standard_Investigation"
+      ],
+      "transition_matrix": [
+        [
+          0.2,
+          0.0,
+          0.8,
+          0.0
+        ],
+        [
+          0.0,
+          0.3333333333333333,
+          0.0,
+          0.6666666666666666
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.7499999999999999,
+          0.0,
+          0.0,
+          0.25
+        ]
+      ]
+    },
+    "hmm": {
+      "n_components": 3,
+      "n_features": 9,
+      "convergence": true,
+      "n_iter": 100,
+      "log_likelihood": 2209.0080997729115,
+      "transition_matrix": [
+        [
+          1.5193767891871919e-43,
+          0.39409257094071387,
+          0.6059074290592862
+        ],
+        [
+          0.009145731537183477,
+          0.3159155430985289,
+          0.6749387253642877
+        ],
+        [
+          0.007075428800082294,
+          0.3411346294901877,
+          0.6517899417097299
+        ]
+      ],
+      "latent_states": {
+        "0": "Legitimate",
+        "1": "Suspicious",
+        "2": "Fraudulent"
+      }
+    },
+    "survival": {
+      "status": "Not fitted"
+    },
+    "fitted": true
+  },
+  "output_files": {
+    "results_csv": "data/processed\\stochastic_predictions.csv"
+  },
+  "aggregate_metrics": {
+    "avg_fraud_probability": 0.6598190656178392,
+    "avg_expected_steps": 5.503349451986682,
+    "state_counts": {
+      "Fraudulent": 660,
+      "Suspicious": 332,
+      "Legitimate": 8
+    },
+    "action_counts": {
+      "deep": 1000
+    }
+  }
+}

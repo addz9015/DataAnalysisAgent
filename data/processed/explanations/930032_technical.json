@@ -1,0 +1,17 @@
+{
+  "claim_id": "930032",
+  "decision": "deny",
+  "confidence": 1.0,
+  "fraud_probability": 1.0,
+  "uncertainty": 1.8813896264235908e-06,
+  "expected_value_by_action": {
+    "approve": 0.0,
+    "fast_track": 50.000094069481314,
+    "standard": 200.00037627792526,
+    "deep": 1000.0018813896263,
+    "deny": 100.00018813896263
+  },
+  "risk_score": 100,
+  "sla_hours": 72,
+  "requires_human_review": true
+}

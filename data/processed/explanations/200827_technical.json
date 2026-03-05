@@ -1,0 +1,17 @@
+{
+  "claim_id": "200827",
+  "decision": "deny",
+  "confidence": 1.0,
+  "fraud_probability": 1.0,
+  "uncertainty": 2.0878836082260932e-07,
+  "expected_value_by_action": {
+    "approve": 0.0,
+    "fast_track": 50.00001043941804,
+    "standard": 200.00004175767216,
+    "deep": 1000.0002087883609,
+    "deny": 100.00002087883608
+  },
+  "risk_score": 100,
+  "sla_hours": 72,
+  "requires_human_review": true
+}

@@ -1,0 +1,17 @@
+{
+  "claim_id": "836272",
+  "decision": "deny",
+  "confidence": 0.942,
+  "fraud_probability": 0.9711109473999968,
+  "uncertainty": 0.028888843811642362,
+  "expected_value_by_action": {
+    "approve": 0.0,
+    "fast_track": 51.444442190582116,
+    "standard": 205.77776876232846,
+    "deep": 1028.8888438116423,
+    "deny": 102.88888438116423
+  },
+  "risk_score": 100,
+  "sla_hours": 72,
+  "requires_human_review": true
+}

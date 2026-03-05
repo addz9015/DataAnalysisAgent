@@ -1,0 +1,17 @@
+{
+  "claim_id": "206004",
+  "decision": "approve",
+  "confidence": 1.0,
+  "fraud_probability": 0.0,
+  "uncertainty": 0.0001524155035223,
+  "expected_value_by_action": {
+    "approve": 0.0,
+    "fast_track": 50.00762077517612,
+    "standard": 200.0304831007045,
+    "deep": 1000.1524155035224,
+    "deny": 100.01524155035224
+  },
+  "risk_score": 10,
+  "sla_hours": 24,
+  "requires_human_review": false
+}

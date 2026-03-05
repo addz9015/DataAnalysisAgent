@@ -1,0 +1,212 @@
+2026-03-04 13:32:21 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 13:32:21 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 13:32:44 | WARNING  | layer4.auth | Invalid API key from 127.0.0.1
+2026-03-04 13:35:16 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 13:35:16 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 13:35:42 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 13:35:42 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 13:36:19 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 13:36:19 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 13:39:01 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 13:39:01 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 13:43:07 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 13:43:07 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 13:43:49 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 13:43:49 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 13:45:18 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 13:45:18 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 13:48:50 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 13:48:50 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 13:49:32 | INFO     | layer4.api | -> GET /health/ | IP: 127.0.0.1
+2026-03-04 13:49:32 | INFO     | layer4.api | <- WARN GET /health/ | Status: 404 | Duration: 0.002s
+2026-03-04 13:49:53 | INFO     | layer4.api | -> POST /predict/ | IP: 127.0.0.1
+2026-03-04 13:49:53 | INFO     | layer4.api | <- FAIL POST /predict/ | Status: 500 | Duration: 0.011s
+2026-03-04 13:51:22 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 13:51:22 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 13:51:23 | INFO     | layer4.api | -> GET /explain/C00001 | IP: 127.0.0.1
+2026-03-04 13:51:23 | INFO     | layer4.api | <- FAIL GET /explain/C00001 | Status: 500 | Duration: 0.004s
+2026-03-04 13:51:44 | INFO     | layer4.api | -> POST /feedback/ | IP: 127.0.0.1
+2026-03-04 13:51:44 | INFO     | layer4.api | <- FAIL POST /feedback/ | Status: 500 | Duration: 0.004s
+2026-03-04 13:51:57 | INFO     | layer4.api | -> GET /health/ | IP: 127.0.0.1
+2026-03-04 13:51:57 | INFO     | layer4.api | <- WARN GET /health/ | Status: 404 | Duration: 0.001s
+2026-03-04 13:52:18 | INFO     | layer4.api | -> POST /predict/ | IP: 127.0.0.1
+2026-03-04 13:52:18 | INFO     | layer4.api | <- FAIL POST /predict/ | Status: 500 | Duration: 0.009s
+2026-03-04 13:52:48 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 13:52:48 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 13:53:02 | INFO     | layer4.api | -> POST /query/ask | IP: 127.0.0.1
+2026-03-04 13:53:02 | INFO     | layer4.api | <- FAIL POST /query/ask | Status: 500 | Duration: 0.004s
+2026-03-04 13:53:19 | INFO     | layer4.api | -> GET /health/ | IP: 127.0.0.1
+2026-03-04 13:53:19 | INFO     | layer4.api | <- WARN GET /health/ | Status: 404 | Duration: 0.001s
+2026-03-04 13:53:23 | INFO     | layer4.api | -> POST /query/quick-check | IP: 127.0.0.1
+2026-03-04 13:53:23 | INFO     | layer4.api | <- FAIL POST /query/quick-check | Status: 500 | Duration: 0.003s
+2026-03-04 13:53:40 | INFO     | layer4.api | -> POST /predict/ | IP: 127.0.0.1
+2026-03-04 13:53:40 | INFO     | layer4.api | <- FAIL POST /predict/ | Status: 500 | Duration: 0.007s
+2026-03-04 13:53:44 | INFO     | layer4.api | -> GET /explain/C00001 | IP: 127.0.0.1
+2026-03-04 13:53:44 | INFO     | layer4.api | <- FAIL GET /explain/C00001 | Status: 500 | Duration: 0.002s
+2026-03-04 13:54:01 | INFO     | layer4.api | -> POST /batch/ | IP: 127.0.0.1
+2026-03-04 13:54:01 | INFO     | layer4.api | <- FAIL POST /batch/ | Status: 500 | Duration: 0.003s
+2026-03-04 13:54:05 | INFO     | layer4.api | -> POST /feedback/ | IP: 127.0.0.1
+2026-03-04 13:54:05 | INFO     | layer4.api | <- FAIL POST /feedback/ | Status: 500 | Duration: 0.004s
+2026-03-04 13:54:22 | INFO     | layer4.api | -> POST /query/ask | IP: 127.0.0.1
+2026-03-04 13:54:22 | INFO     | layer4.api | <- FAIL POST /query/ask | Status: 500 | Duration: 0.003s
+2026-03-04 13:54:44 | INFO     | layer4.api | -> POST /query/quick-check | IP: 127.0.0.1
+2026-03-04 13:54:44 | INFO     | layer4.api | <- FAIL POST /query/quick-check | Status: 500 | Duration: 0.002s
+2026-03-04 13:55:05 | INFO     | layer4.api | -> GET /explain/C00001 | IP: 127.0.0.1
+2026-03-04 13:55:05 | INFO     | layer4.api | <- FAIL GET /explain/C00001 | Status: 500 | Duration: 0.001s
+2026-03-04 13:55:37 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 13:55:37 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 13:56:09 | INFO     | layer4.api | -> GET /health/ | IP: 127.0.0.1
+2026-03-04 13:56:09 | INFO     | layer4.api | <- WARN GET /health/ | Status: 404 | Duration: 0.002s
+2026-03-04 13:56:30 | INFO     | layer4.api | -> POST /predict/ | IP: 127.0.0.1
+2026-03-04 13:56:30 | INFO     | layer4.api | <- FAIL POST /predict/ | Status: 500 | Duration: 0.008s
+2026-03-04 13:56:51 | INFO     | layer4.api | -> POST /batch/ | IP: 127.0.0.1
+2026-03-04 13:56:51 | INFO     | layer4.api | <- FAIL POST /batch/ | Status: 500 | Duration: 0.009s
+2026-03-04 19:59:48 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 19:59:48 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 19:59:57 | INFO     | layer4.api | -> GET /health/ | IP: 127.0.0.1
+2026-03-04 19:59:57 | INFO     | layer4.api | <- WARN GET /health/ | Status: 404 | Duration: 0.002s
+2026-03-04 20:04:12 | INFO     | layer4 | StochClaim API starting...
+2026-03-04 20:04:12 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 20:04:12 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 20:04:26 | INFO     | layer4.api | -> GET /health/ | IP: 127.0.0.1
+2026-03-04 20:04:26 | INFO     | layer4.api | <- WARN GET /health/ | Status: 404 | Duration: 0.001s
+2026-03-04 20:04:28 | INFO     | layer4.api | -> POST /predict/ | IP: 127.0.0.1
+2026-03-04 20:04:28 | INFO     | layer4.api | <- FAIL POST /predict/ | Status: 500 | Duration: 0.016s
+2026-03-04 20:04:30 | INFO     | layer4.api | -> POST /batch/ | IP: 127.0.0.1
+2026-03-04 20:04:30 | INFO     | layer4.api | <- FAIL POST /batch/ | Status: 500 | Duration: 0.007s
+2026-03-04 20:04:32 | INFO     | layer4.api | -> POST /query/ask | IP: 127.0.0.1
+2026-03-04 20:04:32 | INFO     | layer4.api | <- FAIL POST /query/ask | Status: 500 | Duration: 0.009s
+2026-03-04 20:04:34 | INFO     | layer4.api | -> POST /query/quick-check | IP: 127.0.0.1
+2026-03-04 20:04:34 | INFO     | layer4.api | <- FAIL POST /query/quick-check | Status: 500 | Duration: 0.004s
+2026-03-04 20:04:36 | INFO     | layer4.api | -> GET /explain/C00001 | IP: 127.0.0.1
+2026-03-04 20:04:36 | INFO     | layer4.api | <- FAIL GET /explain/C00001 | Status: 500 | Duration: 0.004s
+2026-03-04 20:04:38 | INFO     | layer4.api | -> POST /feedback/ | IP: 127.0.0.1
+2026-03-04 20:04:38 | INFO     | layer4.api | <- FAIL POST /feedback/ | Status: 500 | Duration: 0.007s
+2026-03-04 20:04:57 | INFO     | layer4.api | -> GET /health/ | IP: 127.0.0.1
+2026-03-04 20:04:57 | INFO     | layer4.api | <- WARN GET /health/ | Status: 404 | Duration: 0.002s
+2026-03-04 20:04:59 | INFO     | layer4.api | -> POST /predict/ | IP: 127.0.0.1
+2026-03-04 20:04:59 | INFO     | layer4.api | <- FAIL POST /predict/ | Status: 500 | Duration: 0.006s
+2026-03-04 20:05:01 | INFO     | layer4.api | -> POST /batch/ | IP: 127.0.0.1
+2026-03-04 20:05:01 | INFO     | layer4.api | <- FAIL POST /batch/ | Status: 500 | Duration: 0.005s
+2026-03-04 20:05:03 | INFO     | layer4.api | -> POST /query/ask | IP: 127.0.0.1
+2026-03-04 20:05:03 | INFO     | layer4.api | <- FAIL POST /query/ask | Status: 500 | Duration: 0.005s
+2026-03-04 20:05:05 | INFO     | layer4.api | -> POST /query/quick-check | IP: 127.0.0.1
+2026-03-04 20:05:05 | INFO     | layer4.api | <- FAIL POST /query/quick-check | Status: 500 | Duration: 0.004s
+2026-03-04 20:05:07 | INFO     | layer4.api | -> GET /explain/C00001 | IP: 127.0.0.1
+2026-03-04 20:05:07 | INFO     | layer4.api | <- FAIL GET /explain/C00001 | Status: 500 | Duration: 0.003s
+2026-03-04 20:05:09 | INFO     | layer4.api | -> POST /feedback/ | IP: 127.0.0.1
+2026-03-04 20:05:09 | INFO     | layer4.api | <- FAIL POST /feedback/ | Status: 500 | Duration: 0.004s
+2026-03-04 20:07:26 | INFO     | layer4.api | -> GET /health/ | IP: 127.0.0.1
+2026-03-04 20:07:26 | INFO     | layer4.api | <- WARN GET /health/ | Status: 404 | Duration: 0.002s
+2026-03-04 20:07:28 | INFO     | layer4.api | -> POST /predict/ | IP: 127.0.0.1
+2026-03-04 20:07:28 | INFO     | layer4.api | <- FAIL POST /predict/ | Status: 500 | Duration: 0.008s
+2026-03-04 20:07:30 | INFO     | layer4.api | -> POST /batch/ | IP: 127.0.0.1
+2026-03-04 20:07:30 | INFO     | layer4.api | <- FAIL POST /batch/ | Status: 500 | Duration: 0.004s
+2026-03-04 20:07:32 | INFO     | layer4.api | -> POST /query/ask | IP: 127.0.0.1
+2026-03-04 20:07:32 | INFO     | layer4.api | <- FAIL POST /query/ask | Status: 500 | Duration: 0.003s
+2026-03-04 20:07:34 | INFO     | layer4.api | -> POST /query/quick-check | IP: 127.0.0.1
+2026-03-04 20:07:34 | INFO     | layer4.api | <- FAIL POST /query/quick-check | Status: 500 | Duration: 0.004s
+2026-03-04 20:07:36 | INFO     | layer4.api | -> GET /explain/C00001 | IP: 127.0.0.1
+2026-03-04 20:07:36 | INFO     | layer4.api | <- FAIL GET /explain/C00001 | Status: 500 | Duration: 0.003s
+2026-03-04 20:07:38 | INFO     | layer4.api | -> POST /feedback/ | IP: 127.0.0.1
+2026-03-04 20:07:38 | INFO     | layer4.api | <- FAIL POST /feedback/ | Status: 500 | Duration: 0.003s
+2026-03-04 20:08:07 | INFO     | layer4.api | -> GET /health/ | IP: 127.0.0.1
+2026-03-04 20:08:07 | INFO     | layer4.api | <- WARN GET /health/ | Status: 404 | Duration: 0.002s
+2026-03-04 20:08:09 | INFO     | layer4.api | -> POST /predict/ | IP: 127.0.0.1
+2026-03-04 20:08:09 | INFO     | layer4.api | <- FAIL POST /predict/ | Status: 500 | Duration: 0.009s
+2026-03-04 20:08:11 | INFO     | layer4.api | -> POST /batch/ | IP: 127.0.0.1
+2026-03-04 20:08:11 | INFO     | layer4.api | <- FAIL POST /batch/ | Status: 500 | Duration: 0.005s
+2026-03-04 20:08:13 | INFO     | layer4.api | -> POST /query/ask | IP: 127.0.0.1
+2026-03-04 20:08:13 | INFO     | layer4.api | <- FAIL POST /query/ask | Status: 500 | Duration: 0.003s
+2026-03-04 20:08:15 | INFO     | layer4.api | -> POST /query/quick-check | IP: 127.0.0.1
+2026-03-04 20:08:15 | INFO     | layer4.api | <- FAIL POST /query/quick-check | Status: 500 | Duration: 0.005s
+2026-03-04 20:08:17 | INFO     | layer4.api | -> GET /explain/C00001 | IP: 127.0.0.1
+2026-03-04 20:08:17 | INFO     | layer4.api | <- FAIL GET /explain/C00001 | Status: 500 | Duration: 0.003s
+2026-03-04 20:08:19 | INFO     | layer4.api | -> POST /feedback/ | IP: 127.0.0.1
+2026-03-04 20:08:20 | INFO     | layer4.api | <- FAIL POST /feedback/ | Status: 500 | Duration: 0.007s
+2026-03-04 20:09:19 | INFO     | layer4.api | -> GET /health/ | IP: 127.0.0.1
+2026-03-04 20:09:19 | INFO     | layer4.api | <- WARN GET /health/ | Status: 404 | Duration: 0.003s
+2026-03-04 20:09:21 | INFO     | layer4.api | -> POST /predict/ | IP: 127.0.0.1
+2026-03-04 20:09:21 | INFO     | layer4.api | <- FAIL POST /predict/ | Status: 500 | Duration: 0.008s
+2026-03-04 20:09:23 | INFO     | layer4.api | -> POST /batch/ | IP: 127.0.0.1
+2026-03-04 20:09:23 | INFO     | layer4.api | <- FAIL POST /batch/ | Status: 500 | Duration: 0.004s
+2026-03-04 20:09:25 | INFO     | layer4.api | -> POST /query/ask | IP: 127.0.0.1
+2026-03-04 20:09:25 | INFO     | layer4.api | <- FAIL POST /query/ask | Status: 500 | Duration: 0.004s
+2026-03-04 20:09:27 | INFO     | layer4.api | -> POST /query/quick-check | IP: 127.0.0.1
+2026-03-04 20:09:27 | INFO     | layer4.api | <- FAIL POST /query/quick-check | Status: 500 | Duration: 0.004s
+2026-03-04 20:09:29 | INFO     | layer4.api | -> GET /explain/C00001 | IP: 127.0.0.1
+2026-03-04 20:09:29 | INFO     | layer4.api | <- FAIL GET /explain/C00001 | Status: 500 | Duration: 0.003s
+2026-03-04 20:09:31 | INFO     | layer4.api | -> POST /feedback/ | IP: 127.0.0.1
+2026-03-04 20:09:31 | INFO     | layer4.api | <- FAIL POST /feedback/ | Status: 500 | Duration: 0.004s
+2026-03-04 20:14:57 | INFO     | layer4 | StochClaim API starting...
+2026-03-04 20:14:57 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 20:14:57 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 20:15:14 | INFO     | layer4.api | -> GET /health/ | IP: 127.0.0.1
+2026-03-04 20:15:14 | INFO     | layer4.api | <- WARN GET /health/ | Status: 404 | Duration: 0.001s
+2026-03-04 20:15:16 | INFO     | layer4.api | -> POST /predict/ | IP: 127.0.0.1
+2026-03-04 20:15:16 | INFO     | layer4.api | <- FAIL POST /predict/ | Status: 500 | Duration: 0.008s
+2026-03-04 20:15:18 | INFO     | layer4.api | -> POST /batch/ | IP: 127.0.0.1
+2026-03-04 20:15:18 | INFO     | layer4.api | <- FAIL POST /batch/ | Status: 500 | Duration: 0.005s
+2026-03-04 20:15:20 | INFO     | layer4.api | -> POST /query/ask | IP: 127.0.0.1
+2026-03-04 20:15:20 | INFO     | layer4.api | <- FAIL POST /query/ask | Status: 500 | Duration: 0.006s
+2026-03-04 20:15:22 | INFO     | layer4.api | -> POST /query/quick-check | IP: 127.0.0.1
+2026-03-04 20:15:22 | INFO     | layer4.api | <- FAIL POST /query/quick-check | Status: 500 | Duration: 0.004s
+2026-03-04 20:15:24 | INFO     | layer4.api | -> GET /explain/C00001 | IP: 127.0.0.1
+2026-03-04 20:15:24 | INFO     | layer4.api | <- FAIL GET /explain/C00001 | Status: 500 | Duration: 0.003s
+2026-03-04 20:15:26 | INFO     | layer4.api | -> POST /feedback/ | IP: 127.0.0.1
+2026-03-04 20:15:26 | INFO     | layer4.api | <- FAIL POST /feedback/ | Status: 500 | Duration: 0.005s
+2026-03-04 20:32:16 | INFO     | layer4 | StochClaim API starting...
+2026-03-04 20:32:16 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 20:32:16 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 20:32:46 | INFO     | layer4.api | -> GET /health/ | IP: 127.0.0.1
+2026-03-04 20:32:46 | INFO     | layer4.api | <- WARN GET /health/ | Status: 404 | Duration: 0.009s
+2026-03-04 20:32:48 | INFO     | layer4.api | -> POST /predict/ | IP: 127.0.0.1
+2026-03-04 20:32:49 | INFO     | layer4.api | <- FAIL POST /predict/ | Status: 500 | Duration: 0.988s
+2026-03-04 20:32:51 | INFO     | layer4.api | -> POST /batch/ | IP: 127.0.0.1
+2026-03-04 20:32:51 | INFO     | layer4.api | <- FAIL POST /batch/ | Status: 500 | Duration: 0.019s
+2026-03-04 20:32:53 | INFO     | layer4.api | -> POST /query/ask | IP: 127.0.0.1
+2026-03-04 20:32:53 | INFO     | layer4.api | <- FAIL POST /query/ask | Status: 500 | Duration: 0.011s
+2026-03-04 20:32:55 | INFO     | layer4.api | -> POST /query/quick-check | IP: 127.0.0.1
+2026-03-04 20:32:55 | INFO     | layer4.api | <- FAIL POST /query/quick-check | Status: 500 | Duration: 0.012s
+2026-03-04 20:32:57 | INFO     | layer4.api | -> GET /explain/C00001 | IP: 127.0.0.1
+2026-03-04 20:32:57 | INFO     | layer4.api | <- WARN GET /explain/C00001 | Status: 404 | Duration: 0.002s
+2026-03-04 20:32:59 | INFO     | layer4.api | -> POST /feedback/ | IP: 127.0.0.1
+2026-03-04 20:32:59 | INFO     | layer4.api | <- OK POST /feedback/ | Status: 200 | Duration: 0.003s
+2026-03-04 20:33:14 | INFO     | layer4.api | -> GET /health/ | IP: 127.0.0.1
+2026-03-04 20:33:14 | INFO     | layer4.api | <- WARN GET /health/ | Status: 404 | Duration: 0.001s
+2026-03-04 20:33:16 | INFO     | layer4.api | -> POST /predict/ | IP: 127.0.0.1
+2026-03-04 20:33:16 | INFO     | layer4.api | <- FAIL POST /predict/ | Status: 500 | Duration: 0.011s
+2026-03-04 20:33:18 | INFO     | layer4.api | -> POST /batch/ | IP: 127.0.0.1
+2026-03-04 20:33:18 | INFO     | layer4.api | <- FAIL POST /batch/ | Status: 500 | Duration: 0.012s
+2026-03-04 20:33:20 | INFO     | layer4.api | -> POST /query/ask | IP: 127.0.0.1
+2026-03-04 20:33:20 | INFO     | layer4.api | <- FAIL POST /query/ask | Status: 500 | Duration: 0.009s
+2026-03-04 20:33:22 | INFO     | layer4.api | -> POST /query/quick-check | IP: 127.0.0.1
+2026-03-04 20:33:22 | INFO     | layer4.api | <- FAIL POST /query/quick-check | Status: 500 | Duration: 0.007s
+2026-03-04 20:33:24 | INFO     | layer4.api | -> GET /explain/C00001 | IP: 127.0.0.1
+2026-03-04 20:33:24 | INFO     | layer4.api | <- WARN GET /explain/C00001 | Status: 404 | Duration: 0.001s
+2026-03-04 20:33:26 | INFO     | layer4.api | -> POST /feedback/ | IP: 127.0.0.1
+2026-03-04 20:33:26 | INFO     | layer4.api | <- OK POST /feedback/ | Status: 200 | Duration: 0.002s
+2026-03-04 20:52:07 | INFO     | layer4 | StochClaim API starting...
+2026-03-04 20:52:07 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 20:52:07 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 20:53:04 | INFO     | layer4 | StochClaim API shutting down...
+2026-03-04 21:18:20 | INFO     | layer4 | StochClaim API starting...
+2026-03-04 21:18:20 | INFO     | layer4 |    API Key: ********-key
+2026-03-04 21:18:20 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-04 21:18:32 | WARNING  | layer4.auth | Invalid API key from 127.0.0.1
+2026-03-04 21:18:36 | WARNING  | layer4.auth | Invalid API key from 127.0.0.1
+2026-03-04 21:18:39 | WARNING  | layer4.auth | Invalid API key from 127.0.0.1
+2026-03-04 21:18:39 | WARNING  | layer4.auth | Invalid API key from 127.0.0.1
+2026-03-05 08:25:26 | INFO     | layer4 | StochClaim API starting...
+2026-03-05 08:25:26 | INFO     | layer4 |    API Key: ********-key
+2026-03-05 08:25:26 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-05 08:25:30 | WARNING  | layer4.auth | Invalid API key from 127.0.0.1
+2026-03-05 08:25:30 | WARNING  | layer4.auth | Invalid API key from 127.0.0.1
+2026-03-05 08:25:41 | INFO     | layer4 | StochClaim API shutting down...
+2026-03-05 10:36:35 | INFO     | layer4 | StochClaim API starting...
+2026-03-05 10:36:35 | INFO     | layer4 |    API Key: ********-key
+2026-03-05 10:36:35 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-05 10:48:58 | INFO     | layer4 | StochClaim API starting...
+2026-03-05 10:48:58 | INFO     | layer4 |    API Key: ********-key
+2026-03-05 10:48:58 | INFO     | layer4 |    Rate Limit: 60/min
+2026-03-05 10:48:58 | INFO     | layer4 | StochClaim API shutting down...

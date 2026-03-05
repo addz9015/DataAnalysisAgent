@@ -1,0 +1,17 @@
+{
+  "claim_id": "804410",
+  "decision": "approve",
+  "confidence": 0.997,
+  "fraud_probability": 0.0,
+  "uncertainty": 0.001371741826079,
+  "expected_value_by_action": {
+    "approve": 0.0,
+    "fast_track": 50.068587091303954,
+    "standard": 200.27434836521581,
+    "deep": 1001.3717418260791,
+    "deny": 100.13717418260791
+  },
+  "risk_score": 10,
+  "sla_hours": 24,
+  "requires_human_review": false
+}

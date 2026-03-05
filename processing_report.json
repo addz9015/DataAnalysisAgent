@@ -1,0 +1,426 @@
+{
+  "batch_id": "BATCH_20260303_161755_ad2d58e1",
+  "timestamp": "2026-03-03T16:18:00.176628",
+  "processing_time_seconds": 4.373168,
+  "records": {
+    "input": 1000,
+    "after_validation": 1000,
+    "output": 1000,
+    "validation_drop_rate": 0.0
+  },
+  "features": {
+    "input_columns": [
+      "months_as_customer",
+      "age",
+      "policy_number",
+      "policy_bind_date",
+      "policy_state",
+      "policy_csl",
+      "policy_deductable",
+      "policy_annual_premium",
+      "umbrella_limit",
+      "insured_zip",
+      "insured_sex",
+      "insured_education_level",
+      "insured_occupation",
+      "insured_hobbies",
+      "insured_relationship",
+      "capital-gains",
+      "capital-loss",
+      "incident_date",
+      "incident_type",
+      "collision_type",
+      "incident_severity",
+      "authorities_contacted",
+      "incident_state",
+      "incident_city",
+      "incident_location",
+      "incident_hour_of_the_day",
+      "number_of_vehicles_involved",
+      "property_damage",
+      "bodily_injuries",
+      "witnesses",
+      "police_report_available",
+      "total_claim_amount",
+      "injury_claim",
+      "property_claim",
+      "vehicle_claim",
+      "auto_make",
+      "auto_model",
+      "auto_year",
+      "fraud_reported",
+      "_c39",
+      "_ingestion_timestamp",
+      "_source_type",
+      "_batch_id",
+      "claim_id"
+    ],
+    "output_columns": [
+      "months_as_customer",
+      "age",
+      "policy_number",
+      "policy_bind_date",
+      "policy_state",
+      "policy_csl",
+      "policy_deductable",
+      "policy_annual_premium",
+      "umbrella_limit",
+      "insured_zip",
+      "insured_sex",
+      "insured_education_level",
+      "insured_occupation",
+      "insured_hobbies",
+      "insured_relationship",
+      "capital-gains",
+      "capital-loss",
+      "incident_date",
+      "incident_type",
+      "collision_type",
+      "incident_severity",
+      "authorities_contacted",
+      "incident_state",
+      "incident_city",
+      "incident_location",
+      "incident_hour_of_the_day",
+      "number_of_vehicles_involved",
+      "property_damage",
+      "bodily_injuries",
+      "witnesses",
+      "police_report_available",
+      "total_claim_amount",
+      "injury_claim",
+      "property_claim",
+      "vehicle_claim",
+      "auto_make",
+      "auto_model",
+      "auto_year",
+      "fraud_reported",
+      "_c39",
+      "_ingestion_timestamp",
+      "_source_type",
+      "_batch_id",
+      "claim_id",
+      "claim_to_premium_ratio",
+      "injury_ratio",
+      "property_ratio",
+      "vehicle_ratio",
+      "severity_score",
+      "customer_tenure",
+      "witness_present",
+      "red_flag_high_claim",
+      "red_flag_no_witness",
+      "red_flag_no_police",
+      "red_flag_no_authorities",
+      "red_flag_count",
+      "complexity_score",
+      "age_group",
+      "incident_severity_encoded",
+      "customer_tenure_encoded",
+      "age_group_encoded",
+      "witness_present_encoded",
+      "police_report_available_encoded",
+      "incident_type_Multi-vehicle Collision",
+      "incident_type_Parked Car",
+      "incident_type_Single Vehicle Collision",
+      "incident_type_Vehicle Theft",
+      "collision_type_?",
+      "collision_type_Front Collision",
+      "collision_type_Rear Collision",
+      "collision_type_Side Collision",
+      "authorities_contacted_Ambulance",
+      "authorities_contacted_Fire",
+      "authorities_contacted_Other",
+      "authorities_contacted_Police",
+      "markov_state",
+      "markov_state_encoded",
+      "is_absorbing",
+      "age_scaled",
+      "policy_annual_premium_scaled",
+      "total_claim_amount_scaled",
+      "claim_to_premium_ratio_scaled",
+      "injury_ratio_scaled",
+      "property_ratio_scaled",
+      "vehicle_ratio_scaled",
+      "severity_score_scaled",
+      "complexity_score_scaled"
+    ],
+    "total_features": 87,
+    "feature_groups": {
+      "markov_chain": [
+        "markov_state",
+        "markov_state_encoded",
+        "is_absorbing",
+        "months_as_customer",
+        "customer_tenure_encoded"
+      ],
+      "hmm": [
+        "age_group_encoded",
+        "age_scaled",
+        "authorities_contacted_Ambulance",
+        "authorities_contacted_Fire",
+        "authorities_contacted_Other",
+        "authorities_contacted_Police",
+        "claim_to_premium_ratio_scaled",
+        "collision_type_?",
+        "collision_type_Front Collision",
+        "collision_type_Rear Collision",
+        "collision_type_Side Collision",
+        "complexity_score_scaled",
+        "customer_tenure_encoded",
+        "incident_severity_encoded",
+        "incident_type_Multi-vehicle Collision",
+        "incident_type_Parked Car",
+        "incident_type_Single Vehicle Collision",
+        "incident_type_Vehicle Theft",
+        "injury_ratio_scaled",
+        "markov_state_encoded",
+        "police_report_available_encoded",
+        "policy_annual_premium_scaled",
+        "property_ratio_scaled",
+        "red_flag_count",
+        "severity_score_scaled",
+        "total_claim_amount_scaled",
+        "vehicle_ratio_scaled",
+        "witness_present_encoded"
+      ],
+      "mdp": [
+        "total_claim_amount_scaled",
+        "policy_annual_premium_scaled",
+        "red_flag_count",
+        "complexity_score_scaled"
+      ],
+      "metadata": [
+        "claim_id",
+        "_ingestion_timestamp",
+        "_batch_id"
+      ]
+    }
+  },
+  "validation": {
+    "timestamp": "2026-03-03T16:17:56.307173",
+    "summary": {
+      "total_records": 1000,
+      "valid_records": 1000,
+      "invalid_records": 0,
+      "valid_percentage": 100.0
+    },
+    "error_breakdown": {},
+    "missing_value_stats": {
+      "months_as_customer": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "age": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "policy_number": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "policy_bind_date": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "policy_state": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "policy_csl": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "policy_deductable": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "policy_annual_premium": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "umbrella_limit": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "insured_zip": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "insured_sex": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "insured_education_level": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "insured_occupation": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "insured_hobbies": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "insured_relationship": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "capital-gains": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "capital-loss": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "incident_date": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "incident_type": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "collision_type": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "incident_severity": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "authorities_contacted": {
+        "count": 91,
+        "percentage": 9.1
+      },
+      "incident_state": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "incident_city": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "incident_location": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "incident_hour_of_the_day": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "number_of_vehicles_involved": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "property_damage": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "bodily_injuries": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "witnesses": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "police_report_available": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "total_claim_amount": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "injury_claim": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "property_claim": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "vehicle_claim": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "auto_make": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "auto_model": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "auto_year": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "fraud_reported": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "_c39": {
+        "count": 1000,
+        "percentage": 100.0
+      },
+      "_ingestion_timestamp": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "_source_type": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "_batch_id": {
+        "count": 0,
+        "percentage": 0.0
+      },
+      "claim_id": {
+        "count": 0,
+        "percentage": 0.0
+      }
+    },
+    "sample_invalid": [],
+    "recommendations": [
+      "No major issues detected"
+    ]
+  },
+  "outputs": {
+    "csv_export_path": "data\\processed\\processed_features.csv",
+    "feature_store_path": "data\\processed\\feature_store.json",
+    "feature_store_stats": {
+      "metadata": {
+        "stored_at": "2026-03-03T16:17:59.775603",
+        "total_claims": 1000,
+        "feature_groups": [
+          "markov_chain",
+          "hmm",
+          "mdp",
+          "metadata"
+        ],
+        "versions": {
+          "markov_chain": "1.0",
+          "hmm": "1.0",
+          "mdp": "1.0",
+          "metadata": "1.0"
+        }
+      },
+      "group_counts": {
+        "markov_chain": 1000,
+        "hmm": 1000,
+        "mdp": 1000,
+        "metadata": 1000
+      }
+    }
+  },
+  "markov_state_distribution": {
+    "Standard_Investigation": 365,
+    "Complex_Review": 265,
+    "Fraud_Detected": 247,
+    "Fast_Track": 123
+  },
+  "data_quality_score": 100.0
+}
