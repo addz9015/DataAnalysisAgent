@@ -59,7 +59,8 @@ class DataIntake:
                 detected_type = "batch_records"
             
             elif isinstance(source, pd.DataFrame):
-                df = source.copy()
+                # Keep DataFrame sources by reference to support pass-through semantics.
+                df = source
                 detected_type = "dataframe"
             
             else:
@@ -123,8 +124,7 @@ class DataIntake:
     
     def _standardize_columns(self, df: pd.DataFrame) -> pd.DataFrame:
         """Standardize column names (lowercase, replace spaces with underscores)"""
-        df = df.copy()
-        df.columns = [col.lower().strip().replace(' ', '_') for col in df.columns]
+        df.columns = [str(col).lower().strip().replace(' ', '_') for col in df.columns]
         return df
     
     def _generate_batch_id(self) -> str:

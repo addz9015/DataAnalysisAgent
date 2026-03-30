@@ -1,6 +1,8 @@
 # layer4/dependencies.py
 """Shared dependencies"""
+import os
 import sys
+import pandas as pd
 sys.path.insert(0, '..')
 
 from functools import lru_cache
@@ -22,16 +24,42 @@ def _init_models():
     
     if _pipeline is None:
         print("Loading Layer 1 Pipeline...")
-        _pipeline = Layer1Pipeline()
-        
+        _pipeline = Layer1Pipeline(config={"storage_path": os.path.join("data", "processed")})
+
     if _ensemble is None:
         print("Loading Layer 2 Ensemble...")
         _ensemble = StochasticEnsemble()
-        # TODO: Load pre-trained weights here
+
+        bootstrap_path = os.path.join("data", "processed", "processed_features.csv")
+        if os.path.exists(bootstrap_path):
+            bootstrap_df = pd.read_csv(bootstrap_path)
+
+            # Calibrate Layer 1 scaling for single-claim inference using reference data.
+            if _pipeline is not None and hasattr(_pipeline, "preprocessor"):
+                _pipeline.preprocessor.fit_scaler_reference(bootstrap_df)
+
+            hmm_features = [
+                "age_scaled",
+                "total_claim_amount_scaled",
+                "claim_to_premium_ratio_scaled",
+                "injury_ratio_scaled",
+                "property_ratio_scaled",
+                "vehicle_ratio_scaled",
+                "severity_score_scaled",
+                "complexity_score_scaled",
+                "red_flag_count",
+            ]
+            available_hmm_features = [f for f in hmm_features if f in bootstrap_df.columns]
+            if len(available_hmm_features) >= 3:
+                _ensemble.fit(bootstrap_df, hmm_features=available_hmm_features)
+                print(f"Layer 2 Ensemble bootstrapped from {bootstrap_path}")
+            else:
+                print("Warning: insufficient features to bootstrap Layer 2 Ensemble")
+        else:
+            print(f"Warning: bootstrap file missing at {bootstrap_path}")
         
     if _agent is None:
         print("Loading Layer 3 Agent...")
-        import os
         _agent = StochClaimAgent(
             use_llm=bool(os.getenv("GROQ_API_KEY")),
             llm_provider='groq',

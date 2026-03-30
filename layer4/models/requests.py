@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 from typing import List, Optional, Dict
 
 class ClaimData(BaseModel):
-    claim_id: str
+    claim_id: Optional[str] = None
     months_as_customer: int = Field(..., ge=0, le=600)
     age: int = Field(..., ge=16, le=100)
     policy_annual_premium: float = Field(..., gt=0)
@@ -15,7 +15,7 @@ class ClaimData(BaseModel):
     incident_type: str
     collision_type: str
     authorities_contacted: str
-    witnesses: int = Field(..., ge=0)
+    witnesses: Optional[int] = Field(None, ge=0)
     witness_present: Optional[str] = "UNKNOWN"
     police_report_available: Optional[str] = "UNKNOWN"
 
@@ -23,7 +23,7 @@ class PredictRequest(ClaimData):
     pass
 
 class BatchRequest(BaseModel):
-    claims: List[ClaimData]
+    claims: List[ClaimData] = Field(..., min_length=1)
 
 class QueryRequest(BaseModel):
     question: str

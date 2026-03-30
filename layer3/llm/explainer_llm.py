@@ -27,6 +27,7 @@ class LLMExplainer:
         # Default models
         self.model = model or self._default_model()
         self.client = None
+        self.last_source = "template"
         self._init_client()
     
     def _get_api_key(self) -> str:
@@ -58,15 +59,23 @@ class LLMExplainer:
                 from groq import Groq
                 self.client = Groq(api_key=self.api_key)
             except ImportError:
-                raise ImportError("Install groq: pip install groq")
-                
+                logger.warning("groq package not installed; using template fallback explanations")
+                self.client = None
+            except Exception as e:
+                logger.warning(f"Groq client init failed; using template fallback explanations: {e}")
+                self.client = None
+
         elif self.provider == "gemini":
             try:
                 import google.generativeai as genai
                 genai.configure(api_key=self.api_key)
                 self.client = genai.GenerativeModel(self.model)
             except ImportError:
-                raise ImportError("Install google-generativeai: pip install google-generativeai")
+                logger.warning("google-generativeai package not installed; using template fallback explanations")
+                self.client = None
+            except Exception as e:
+                logger.warning(f"Gemini client init failed; using template fallback explanations: {e}")
+                self.client = None
     
     def explain_decision(self, 
                         claim_id: str,
@@ -76,12 +85,14 @@ class LLMExplainer:
                         key_evidence: Dict,
                         reasoning: str,
                         tone: str = "professional") -> str:
-                        
+
         """
         Generate natural language explanation using LLM
         """
-        #return self._fallback_explanation(decision, fraud_probability)
-        
+        if self.client is None:
+            self.last_source = "template"
+            return self._fallback_explanation(decision, fraud_probability)
+
         prompt = self._build_prompt(
             claim_id=claim_id,
             decision=decision,
@@ -91,15 +102,21 @@ class LLMExplainer:
             reasoning=reasoning,
             tone=tone
         )
-        
+
         try:
             if self.provider == "groq":
+                self.last_source = "llm"
                 return self._call_groq(prompt)
             elif self.provider == "gemini":
+                self.last_source = "llm"
                 return self._call_gemini(prompt)
         except Exception as e:
             logger.error(f"LLM call failed: {e}")
+            self.last_source = "template"
             return self._fallback_explanation(decision, fraud_probability)
+
+        self.last_source = "template"
+        return self._fallback_explanation(decision, fraud_probability)
     
     def _build_prompt(self, **kwargs) -> str:
         """Build prompt for LLM"""

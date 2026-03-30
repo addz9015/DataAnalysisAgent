@@ -22,10 +22,17 @@ class DataPreprocessor:
     def __init__(self, config: Optional[Dict] = None):
         self.config = config or {}
         self.scaler = StandardScaler()
+        self.scaler_fitted = False
+        self.scaler_feature_names: List[str] = []
         self.imputer = SimpleImputer(strategy='median')
         self.label_encoders = {}
         self.feature_stats = {}
         self.processed_df = None
+        self.scale_columns = [
+            'age', 'policy_annual_premium', 'total_claim_amount',
+            'claim_to_premium_ratio', 'injury_ratio', 'property_ratio',
+            'vehicle_ratio', 'severity_score', 'complexity_score'
+        ]
         
         # Settings from config
         self.severity_mapping = FEATURE_SETTINGS['severity_mapping']
@@ -33,6 +40,27 @@ class DataPreprocessor:
         self.tenure_labels = FEATURE_SETTINGS['tenure_labels']
         
         logger.info("Preprocessor initialized")
+
+    def fit_scaler_reference(self, df: pd.DataFrame):
+        """Fit scaler on a reference dataset so single-claim inference stays stable."""
+        if df is None or df.empty:
+            logger.warning("Reference DataFrame is empty; skipping scaler fit")
+            return
+
+        scale_cols = [col for col in self.scale_columns if col in df.columns]
+        if len(scale_cols) < 3:
+            logger.warning("Insufficient scale columns in reference data; skipping scaler fit")
+            return
+
+        ref = df[scale_cols].replace([np.inf, -np.inf], np.nan).dropna()
+        if len(ref) < 2:
+            logger.warning("Reference data has too few rows after cleaning; skipping scaler fit")
+            return
+
+        self.scaler.fit(ref)
+        self.scaler_fitted = True
+        self.scaler_feature_names = scale_cols
+        logger.info(f"Preprocessor scaler fitted on reference data ({len(ref)} rows)")
     
     def preprocess(self, df: pd.DataFrame) -> pd.DataFrame:
         """
@@ -221,24 +249,20 @@ class DataPreprocessor:
             red_flags = row.get('red_flag_count', 0)
             severity = row.get('severity_score', 0)
             
-            # Fast_Track: red_flag_count = 0 AND severity_score <= 2
-            if red_flags == 0 and severity <= 2:
-                return 'Fast_Track'
-            
             # High_Risk_Investigation: red_flag_count >= 3
             if red_flags >= 3:
                 return 'High_Risk_Investigation'
             
-            # Complex_Review: severity_score >= 3 AND red_flag_count <= 1
-            if severity >= 3 and red_flags <= 1:
+            # Standard_Investigation: any non-high-risk claim with red flags
+            if red_flags >= 1:
+                return 'Standard_Investigation'
+
+            # Complex_Review: severe claims without explicit red flags
+            if severity >= 3:
                 return 'Complex_Review'
             
-            # Standard_Investigation: red_flag_count = 1 OR (red_flag_count = 2 AND severity_score <= 2)
-            if red_flags == 1 or (red_flags == 2 and severity <= 2):
-                return 'Standard_Investigation'
-            
-            # Default to Standard if no rules match perfectly (fallback)
-            return 'Standard_Investigation'
+            # Default to Fast_Track for low-severity/no-red-flag claims
+            return 'Fast_Track'
         
         # Apply state assignment
         df['markov_state'] = df.apply(assign_state, axis=1)
@@ -263,29 +287,46 @@ class DataPreprocessor:
     def _scale_features(self, df: pd.DataFrame) -> pd.DataFrame:
         """Scale numerical features for ML algorithms"""
         df = df.copy()
-        
+
         # Select numerical features to scale
-        scale_cols = [
-            'age', 'policy_annual_premium', 'total_claim_amount',
-            'claim_to_premium_ratio', 'injury_ratio', 'property_ratio',
-            'vehicle_ratio', 'severity_score', 'complexity_score'
-        ]
-        
+        scale_cols = list(self.scale_columns)
+
         # Only scale columns that exist
         scale_cols = [col for col in scale_cols if col in df.columns]
-        
-        if scale_cols:
-            # Fit and transform
-            scaled_values = self.scaler.fit_transform(df[scale_cols])
-            
-            # Replace with scaled values
-            for idx, col in enumerate(scale_cols):
-                df[f'{col}_scaled'] = scaled_values[:, idx]
+
+        if not scale_cols:
+            return df
+
+        numeric = df[scale_cols].replace([np.inf, -np.inf], np.nan).fillna(0)
+
+        # Use pre-fitted reference scaler when available.
+        if self.scaler_fitted and self.scaler_feature_names == scale_cols:
+            scaled_values = self.scaler.transform(numeric)
+        elif len(df) > 1:
+            # Batch path: fitting on a multi-row batch is stable.
+            scaled_values = self.scaler.fit_transform(numeric)
+            self.scaler_fitted = True
+            self.scaler_feature_names = scale_cols
+        else:
+            # Single-row fallback: avoid fit_transform, which collapses all scaled values to 0.
+            logger.warning(
+                "Scaler not fitted for single-row input; using raw values for *_scaled fallback"
+            )
+            scaled_values = numeric.values
+
+        # Replace with scaled values
+        for idx, col in enumerate(scale_cols):
+            df[f'{col}_scaled'] = scaled_values[:, idx]
         
         return df
     
     def get_feature_groups(self) -> Dict[str, List[str]]:
         """Organize features by model type for Layer 2"""
+        processed_columns = set(self.processed_df.columns) if self.processed_df is not None else set()
+        metadata_columns = ['claim_id', '_ingestion_timestamp']
+        if '_batch_id' in processed_columns:
+            metadata_columns.append('_batch_id')
+
         return {
             'markov_chain': [
                 'markov_state', 'markov_state_encoded', 'is_absorbing',
@@ -296,7 +337,5 @@ class DataPreprocessor:
                 'total_claim_amount_scaled', 'policy_annual_premium_scaled',
                 'red_flag_count', 'complexity_score_scaled'
             ],
-            'metadata': [
-                'claim_id', '_ingestion_timestamp', '_batch_id'
-            ]
+            'metadata': metadata_columns
         }

@@ -5,13 +5,13 @@ Fraud stats, claim distributions, key metrics
 
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 import plotly.graph_objects as go
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
-from layer5.core.dashboard_data import load_decisions, load_features, get_summary_stats
+from layer5.core.dashboard_data import load_decisions, get_summary_stats
+from layer5.streamlit.components.navigation import render_navigation
 
 st.set_page_config(page_title="Overview — StochClaim", layout="wide")
 
@@ -29,6 +29,8 @@ h1,h2,h3 { font-family:'IBM Plex Mono',monospace; }
 </style>
 """, unsafe_allow_html=True)
 
+render_navigation(current_page="overview", show_quick_links=True)
+
 st.markdown("""
 <h2 style="font-family:'IBM Plex Mono',monospace; letter-spacing:0.1em; margin-bottom:0.25rem;">
 ◈ OVERVIEW
@@ -43,6 +45,9 @@ df = load_decisions()
 if df.empty:
     st.warning("No processed data found. Run the pipeline first (Layers 1–3).")
     st.stop()
+
+decision_col = "final_decision" if "final_decision" in df.columns else ("agent_action" if "agent_action" in df.columns else None)
+state_col = "markov_state" if "markov_state" in df.columns else ("hmm_state" if "hmm_state" in df.columns else None)
 
 stats = get_summary_stats(df)
 
@@ -100,8 +105,8 @@ with col_left:
 
 with col_right:
     st.markdown("<div style='font-family:IBM Plex Mono;font-size:0.75rem;color:#4a5568;letter-spacing:0.15em;margin-bottom:0.75rem;'>DECISION BREAKDOWN</div>", unsafe_allow_html=True)
-    if "final_decision" in df.columns:
-        dec_counts = df["final_decision"].value_counts()
+    if decision_col:
+        dec_counts = df[decision_col].value_counts()
         colors_map = {
             "approve":"#00ff88","fast_track":"#00e5ff","standard":"#ff6b35",
             "deep":"#ff9500","deny":"#ff2d55","fraud_detected":"#cc0033"
@@ -124,8 +129,8 @@ col_left2, col_right2 = st.columns([1, 1])
 
 with col_left2:
     st.markdown("<div style='font-family:IBM Plex Mono;font-size:0.75rem;color:#4a5568;letter-spacing:0.15em;margin-bottom:0.75rem;'>MARKOV STATE DISTRIBUTION</div>", unsafe_allow_html=True)
-    if "markov_state" in df.columns:
-        markov_counts = df["markov_state"].value_counts()
+    if state_col:
+        markov_counts = df[state_col].value_counts()
         fig = go.Figure(go.Pie(
             labels=markov_counts.index,
             values=markov_counts.values,
@@ -141,11 +146,13 @@ with col_left2:
 with col_right2:
     st.markdown("<div style='font-family:IBM Plex Mono;font-size:0.75rem;color:#4a5568;letter-spacing:0.15em;margin-bottom:0.75rem;'>RISK TIER BREAKDOWN</div>", unsafe_allow_html=True)
     if "fraud_probability" in df.columns:
-        bins = [0, 0.3, 0.6, 0.8, 1.0]
-        labels = ["Low (<30%)", "Medium (30-60%)", "High (60-80%)", "Critical (>80%)"]
-        df["risk_tier"] = pd.cut(df["fraud_probability"], bins=bins, labels=labels)
-        tier_counts = df["risk_tier"].value_counts().reindex(labels, fill_value=0)
-        tier_colors = ["#00ff88", "#ff6b35", "#ff9500", "#ff2d55"]
+        bins = [0, 0.5, 1.001]
+        labels = ["Low (<50%)", "High (\u226550%)"]
+        _tier_series = pd.cut(
+            df["fraud_probability"], bins=bins, labels=labels, include_lowest=True
+        )
+        tier_counts = _tier_series.value_counts().reindex(labels, fill_value=0)
+        tier_colors = ["#00ff88", "#ff2d55"]
         fig = go.Figure(go.Bar(
             y=tier_counts.index,
             x=tier_counts.values,
@@ -161,7 +168,13 @@ with col_right2:
 
 # Data table
 st.markdown("<div style='font-family:IBM Plex Mono;font-size:0.75rem;color:#4a5568;letter-spacing:0.15em;margin:1.5rem 0 0.75rem 0;'>RECENT CLAIMS SAMPLE</div>", unsafe_allow_html=True)
-display_cols = [c for c in ["claim_id","fraud_probability","final_decision","markov_state","requires_human_review"] if c in df.columns]
+display_cols = [c for c in ["claim_id", "fraud_probability"] if c in df.columns]
+if decision_col and decision_col not in display_cols:
+    display_cols.append(decision_col)
+if state_col and state_col not in display_cols:
+    display_cols.append(state_col)
+if "requires_human_review" in df.columns:
+    display_cols.append("requires_human_review")
 st.dataframe(df[display_cols].head(20), use_container_width=True,
              hide_index=True,
              column_config={

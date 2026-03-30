@@ -13,6 +13,7 @@ class PredictResponse(BaseModel):
     investigation_depth: Optional[int]
     explanation: str
     explanation_source: str
+    human_review_note: Optional[str] = None
 
 class BatchResponse(BaseModel):
     total_processed: int

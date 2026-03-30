@@ -4,6 +4,7 @@ Main entry point
 """
 
 import streamlit as st
+from layer5.streamlit.components.navigation import render_navigation
 
 st.set_page_config(
     page_title="StochClaim — Fraud Intelligence",
@@ -60,26 +61,9 @@ html, body, [data-testid="stAppViewContainer"] {
 }
 
 h1, h2, h3 { font-family: 'IBM Plex Mono', monospace; }
+
 </style>
 """, unsafe_allow_html=True)
-
-# Sidebar branding
-st.sidebar.markdown("""
-<div style="padding: 1rem 0 2rem 0; border-bottom: 1px solid #1e2530; margin-bottom: 1rem;">
-    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 1.1rem; color: #00e5ff; letter-spacing: 0.15em;">
-        ⬡ STOCHCLAIM
-    </div>
-    <div style="font-size: 0.7rem; color: #4a5568; letter-spacing: 0.2em; margin-top: 0.25rem;">
-        FRAUD INTELLIGENCE v1.0
-    </div>
-</div>
-""", unsafe_allow_html=True)
-
-st.sidebar.page_link("app.py", label="⬡  Home", icon=None)
-st.sidebar.page_link("pages/01_overview.py", label="◈  Overview", icon=None)
-st.sidebar.page_link("pages/02_claim_explorer.py", label="◎  Claim Explorer", icon=None)
-st.sidebar.page_link("pages/03_fraud_analyzer.py", label="◉  Fraud Analyzer", icon=None)
-st.sidebar.page_link("pages/04_agent_monitor.py", label="◆  Agent Monitor", icon=None)
 
 # Home page
 st.markdown("""
@@ -94,22 +78,4 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-col1, col2, col3, col4 = st.columns(4)
-cards = [
-    ("◈", "Overview", "Fraud stats & distributions", "pages/01_overview.py"),
-    ("◎", "Claim Explorer", "Lookup & inspect claims", "pages/02_claim_explorer.py"),
-    ("◉", "Fraud Analyzer", "Batch upload & analysis", "pages/03_fraud_analyzer.py"),
-    ("◆", "Agent Monitor", "Review queue & Markov states", "pages/04_agent_monitor.py"),
-]
-for col, (icon, title, desc, page) in zip([col1, col2, col3, col4], cards):
-    with col:
-        st.markdown(f"""
-        <div style="background:#111418; border:1px solid #1e2530; border-top:2px solid #00e5ff;
-                    padding:1.5rem; border-radius:4px; min-height:140px;">
-            <div style="font-size:1.5rem; margin-bottom:0.75rem;">{icon}</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:0.85rem;
-                        color:#00e5ff; margin-bottom:0.5rem;">{title}</div>
-            <div style="font-size:0.8rem; color:#4a5568;">{desc}</div>
-        </div>
-        """, unsafe_allow_html=True)
-        st.page_link(page, label=f"Open {title} →")
+render_navigation(current_page="home", show_quick_links=True)

@@ -18,6 +18,7 @@ class HybridExplainer:
     def __init__(self, llm_explainer, llm_threshold: float = 0.6):
         self.llm = llm_explainer
         self.llm_threshold = llm_threshold  # Only use LLM for fraud_prob > 60%
+        self.last_source = 'template'
         
     def explain(self, claim_data: dict) -> str:
         """
@@ -28,10 +29,11 @@ class HybridExplainer:
         
         # Simple cases: use template
         if fraud_prob < self.llm_threshold:
+            self.last_source = 'template'
             return self._template_explain(claim_data)
         
         # Complex cases: use LLM
-        return self.llm.explain_decision(
+        explanation = self.llm.explain_decision(
             claim_id=claim_data.get('claim_id', 'unknown'),
             decision=decision,
             fraud_probability=fraud_prob,
@@ -43,6 +45,9 @@ class HybridExplainer:
             },
             reasoning=claim_data.get('reasoning', '')
         )
+        llm_source = getattr(self.llm, 'last_source', 'llm')
+        self.last_source = 'llm' if llm_source == 'llm' else 'template'
+        return explanation
     
     def _template_explain(self, data: dict) -> str:
         """Generate from template"""

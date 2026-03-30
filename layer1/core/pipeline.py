@@ -9,7 +9,7 @@ import logging
 from typing import Dict, List, Optional, Tuple, Any
 from datetime import datetime
 import logging.config
-from layer1.config.settings import LOGGING_CONFIG
+from layer1.config.settings import LOGGING_CONFIG, PROCESSED_DATA_DIR
 
 from .intake import DataIntake
 from .validation import DataValidator
@@ -36,7 +36,8 @@ class Layer1Pipeline:
             max_missing_ratio=self.config.get('max_missing_ratio', 0.3)
         )
         self.preprocessor = DataPreprocessor(self.config.get('preprocessing'))
-        self.feature_store = FeatureStore(self.config.get('storage_path'))
+        storage_path = self.config.get('storage_path', str(PROCESSED_DATA_DIR))
+        self.feature_store = FeatureStore(storage_path)
         
         # Pipeline state
         self.processing_history = []

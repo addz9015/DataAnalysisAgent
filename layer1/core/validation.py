@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 import logging
 from typing import Dict, List, Optional, Tuple, Any
-from pydantic import BaseModel, validator, ValidationError, Field
+from pydantic import BaseModel, ValidationError, Field, field_validator, model_validator
 from datetime import datetime
 
 logger = logging.getLogger("layer1.validation")
@@ -29,7 +29,8 @@ class ClaimSchema(BaseModel):
     incident_type: str
     collision_type: Optional[str] = None
     authorities_contacted: Optional[str] = None
-    witnesses: int = Field(..., ge=0)
+    witness_present: Optional[str] = None
+    witnesses: Optional[int] = Field(default=None, ge=0)
     police_report_available: Optional[str] = None
     
     # Optional fields with defaults
@@ -40,24 +41,33 @@ class ClaimSchema(BaseModel):
     settlement_amount: Optional[float] = None
     
     # Validators for categorical fields
-    @validator('incident_severity')
-    def validate_severity(cls, v):
+    @field_validator('incident_severity')
+    @classmethod
+    def validate_severity(cls, v: str) -> str:
         allowed = ['Trivial Damage', 'Minor Damage', 'Major Damage', 'Total Loss']
         if v not in allowed:
             raise ValueError(f'incident_severity must be one of {allowed}')
         return v
     
-    @validator('incident_type')
-    def validate_incident_type(cls, v):
-        allowed = [
-            'Single Vehicle Collision', 'Multi-vehicle Collision', 
-            'Vehicle Theft', 'Parked Car'
-        ]
-        if v not in allowed:
-            raise ValueError(f'incident_type must be one of {allowed}')
-        return v
-    @validator('collision_type')
-    def validate_collision_type(cls, v):
+    @field_validator('incident_type')
+    @classmethod
+    def validate_incident_type(cls, v: str) -> str:
+        allowed = {
+            'Single Vehicle': 'Single Vehicle',
+            'Single Vehicle Collision': 'Single Vehicle',
+            'Multi-Vehicle': 'Multi-Vehicle',
+            'Multi-vehicle Collision': 'Multi-Vehicle',
+            'Vehicle Theft': 'Vehicle Theft',
+            'Parked Car': 'Parked Car'
+        }
+        value = str(v).strip()
+        if value not in allowed:
+            raise ValueError(f'incident_type must be one of {list(allowed.keys())}')
+        return allowed[value]
+
+    @field_validator('collision_type')
+    @classmethod
+    def validate_collision_type(cls, v: Optional[str]) -> Optional[str]:
         if v is None:
             return v
         allowed = [
@@ -67,41 +77,77 @@ class ClaimSchema(BaseModel):
             raise ValueError(f'collision_type must be one of {allowed}')
         return v
     
-    @validator('authorities_contacted')
-    def validate_authorities(cls, v):
+    @field_validator('authorities_contacted')
+    @classmethod
+    def validate_authorities(cls, v: Optional[str]) -> Optional[str]:
         if v is None:
             return v
         allowed = ['Police', 'Fire', 'Ambulance', 'None', 'Other']
         if v not in allowed:
             raise ValueError(f'authorities_contacted must be one of {allowed}')
         return v
+
+    @field_validator('witness_present')
+    @classmethod
+    def validate_witness_present(cls, v: Optional[str]) -> Optional[str]:
+        if v is None:
+            return v
+        if str(v).strip().lower() not in ['yes', 'no', 'unknown', 'y', 'n', '1', '0']:
+            raise ValueError('witness_present must be Yes/No/Unknown')
+        return v
+
+    @model_validator(mode='before')
+    @classmethod
+    def infer_witness_count(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+
+        if data.get('witnesses') is not None:
+            return data
+
+        normalized_data = dict(data)
+        witness_present = normalized_data.get('witness_present')
+        if witness_present is None:
+            normalized_data['witnesses'] = 0
+            return normalized_data
+
+        normalized = str(witness_present).strip().lower()
+        if normalized in ['yes', 'y', '1', 'true']:
+            normalized_data['witnesses'] = 1
+        elif normalized in ['no', 'n', '0', 'false']:
+            normalized_data['witnesses'] = 0
+        else:
+            normalized_data['witnesses'] = 0
+        return normalized_data
     
-    @validator('police_report_available')
-    def validate_binary(cls, v):
+    @field_validator('police_report_available')
+    @classmethod
+    def validate_binary(cls, v: Optional[str]) -> Optional[str]:
         if v is None:
             return v
         # Allow flexibility in binary representations
-        if str(v).lower() not in ['yes', 'no', 'unknown', 'y', 'n', '1', '0']:
+        if str(v).strip().lower() not in ['yes', 'no', 'unknown', 'y', 'n', '1', '0']:
             raise ValueError(f'Must be Yes/No/Unknown')
         return v
     
-    @validator('total_claim_amount')
-    def validate_amount_consistency(cls, v, values):
-        """Check that total equals sum of components (with tolerance)"""
-        injury = values.get('injury_claim', 0) or 0
-        property_c = values.get('property_claim', 0) or 0
-        vehicle = values.get('vehicle_claim', 0) or 0
-        
+    @model_validator(mode='after')
+    def validate_amount_consistency(self):
+        """Check total against components after all component amounts are available."""
+        total = self.total_claim_amount or 0
+        injury = self.injury_claim or 0
+        property_c = self.property_claim or 0
+        vehicle = self.vehicle_claim or 0
+
         expected = injury + property_c + vehicle
-        
-        # Skip validation if components are missing
-        if expected == 0:
-            return v
-        
-        # Allow 10% tolerance for rounding/errors
-        if abs(v - expected) > (expected * 0.1):
-            raise ValueError(f'total_claim_amount ({v}) != sum of components ({expected})')
-        return v
+
+        # Skip validation if total or components are unavailable.
+        if total == 0 or expected == 0:
+            return self
+
+        # Allow 10% tolerance for rounding/errors.
+        if abs(total - expected) > (expected * 0.1):
+            raise ValueError(f'total_claim_amount ({total}) != sum of components ({expected})')
+        return self
 
 
 class DataValidator:

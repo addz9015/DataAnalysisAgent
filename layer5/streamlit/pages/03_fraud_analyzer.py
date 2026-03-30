@@ -3,17 +3,25 @@ Page 3: Fraud Analyzer
 Batch upload new claims and run through pipeline
 """
 
+import html as html_module
 import streamlit as st
 import pandas as pd
-import json
-import io
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
 from layer5.core.dashboard_data import api_predict, api_batch, api_health
 from layer5.streamlit.components.risk_gauge import risk_gauge
 from layer5.streamlit.components.claim_card import claim_card
+from layer5.streamlit.components.navigation import render_navigation
+
+if "fraud_analyzer_results" not in st.session_state:
+    st.session_state["fraud_analyzer_results"] = pd.DataFrame()
+if "fraud_analyzer_source" not in st.session_state:
+    st.session_state["fraud_analyzer_source"] = ""
+if "fraud_analyzer_upload_signature" not in st.session_state:
+    st.session_state["fraud_analyzer_upload_signature"] = ""
 
 st.set_page_config(page_title="Fraud Analyzer — StochClaim", layout="wide")
 
@@ -28,6 +36,8 @@ h1,h2,h3 { font-family:'IBM Plex Mono',monospace; }
 [data-testid="stFileUploader"] { background:#111418 !important; border:1px dashed #1e2530 !important; }
 </style>
 """, unsafe_allow_html=True)
+
+render_navigation(current_page="analyzer", show_quick_links=True)
 
 st.markdown("""
 <h2 style="font-family:'IBM Plex Mono',monospace; letter-spacing:0.1em; margin-bottom:0.25rem;">
@@ -65,6 +75,13 @@ with tab1:
 
     if uploaded:
         try:
+            upload_signature = f"{uploaded.name}:{getattr(uploaded, 'size', 0)}"
+            if st.session_state["fraud_analyzer_upload_signature"] != upload_signature:
+                st.session_state["fraud_analyzer_upload_signature"] = upload_signature
+                st.session_state["fraud_analyzer_results"] = pd.DataFrame()
+                st.session_state["fraud_analyzer_source"] = uploaded.name
+                st.session_state.pop("fraud_analyzer_show_count", None)
+
             ext = uploaded.name.split(".")[-1].lower()
             if ext == "csv":
                 df_upload = pd.read_csv(uploaded)
@@ -94,21 +111,70 @@ with tab1:
                     with st.spinner("Processing through pipeline..."):
                         result = api_batch(claims)
                     if result:
-                        st.success(f"✓ Processed {len(result.get('results', []))} claims")
                         results_df = pd.DataFrame(result.get("results", []))
-                        st.markdown("<div style='font-family:IBM Plex Mono;font-size:0.75rem;color:#4a5568;letter-spacing:0.15em;margin:1rem 0 0.5rem 0;'>RESULTS</div>", unsafe_allow_html=True)
-                        for _, row in results_df.iterrows():
-                            claim_card(row.to_dict())
-                        csv_out = results_df.to_csv(index=False)
-                        st.download_button("⬇ DOWNLOAD RESULTS CSV", csv_out,
-                                           file_name="fraud_analysis_results.csv", mime="text/csv")
+                        st.session_state["fraud_analyzer_results"] = results_df
+                        st.session_state["fraud_analyzer_source"] = uploaded.name
+                        st.success(f"✓ Processed {len(results_df)} claims")
                     else:
+                        st.session_state["fraud_analyzer_results"] = pd.DataFrame()
                         st.error("Pipeline returned no results. Check Layer 4 logs.")
+
+            results_df = st.session_state.get("fraud_analyzer_results", pd.DataFrame())
+            if isinstance(results_df, pd.DataFrame) and not results_df.empty:
+                source_name = st.session_state.get("fraud_analyzer_source", uploaded.name)
+                st.markdown(
+                    "<div style='font-family:IBM Plex Mono;font-size:0.75rem;color:#4a5568;letter-spacing:0.15em;margin:1rem 0 0.25rem 0;'>"
+                    "RESULTS"
+                    "</div>",
+                    unsafe_allow_html=True,
+                )
+                st.markdown(
+                    f"<div style='font-family:IBM Plex Mono;font-size:0.68rem;color:#4a5568;margin-bottom:0.75rem;'>"
+                    f"Source: {source_name} • {len(results_df):,} analyzed claims"
+                    "</div>",
+                    unsafe_allow_html=True,
+                )
+
+                if len(results_df) > 1:
+                    show_max = min(200, len(results_df))
+                    show_min = 10 if show_max >= 10 else 1
+                    show_default = min(50, show_max)
+                    if show_default < show_min:
+                        show_default = show_min
+                    show_count = st.slider(
+                        "Show",
+                        min_value=show_min,
+                        max_value=show_max,
+                        value=show_default,
+                        key="fraud_analyzer_show_count",
+                    )
+                else:
+                    show_count = len(results_df)
+
+                st.markdown(
+                    f"<div style='font-family:IBM Plex Mono;font-size:0.7rem;color:#4a5568;margin-bottom:0.75rem;'>"
+                    f"Showing {min(show_count, len(results_df))} of {len(results_df):,} claims"
+                    "</div>",
+                    unsafe_allow_html=True,
+                )
+
+                for _, row in results_df.head(show_count).iterrows():
+                    claim_card(row.to_dict())
+
+                csv_out = results_df.to_csv(index=False)
+                st.download_button(
+                    "⬇ DOWNLOAD RESULTS CSV",
+                    csv_out,
+                    file_name="fraud_analysis_results.csv",
+                    mime="text/csv",
+                )
         except Exception as e:
             st.error(f"Failed to parse file: {e}")
 
 with tab2:
     st.markdown("<div style='font-family:IBM Plex Mono;font-size:0.75rem;color:#4a5568;letter-spacing:0.15em;margin-bottom:1rem;'>ENTER SINGLE CLAIM</div>", unsafe_allow_html=True)
+
+    manual_claim_id = st.text_input("Claim ID", value="", placeholder="Auto-generate if left blank")
 
     c1, c2, c3 = st.columns(3)
     with c1:
@@ -123,13 +189,14 @@ with tab2:
         vehicle_claim = st.number_input("Vehicle Claim ($)", min_value=0.0, value=3000.0)
         incident_severity = st.selectbox("Incident Severity",
             ["Minor Damage", "Major Damage", "Total Loss", "Trivial Damage"])
-        witness_present = st.selectbox("Witness Present", ["YES", "NO"])
-        police_report = st.selectbox("Police Report", ["YES", "NO"])
+        witness_present = st.selectbox("Witness Present", ["Yes", "No"])
+        witnesses = st.number_input("Witness Count", min_value=0, value=1)
+        police_report = st.selectbox("Police Report", ["Yes", "No"])
 
     incident_type = st.selectbox("Incident Type",
         ["Single Vehicle Collision", "Multi-vehicle Collision", "Vehicle Theft", "Parked Car"])
     collision_type = st.selectbox("Collision Type",
-        ["Front Collision", "Rear Collision", "Side Collision", "?"])
+        ["Front Collision", "Rear Collision", "Side Collision", "No Collision"])
     authorities = st.selectbox("Authorities Contacted",
         ["Police", "Fire", "Ambulance", "None", "Other"])
 
@@ -137,7 +204,13 @@ with tab2:
         if not is_online:
             st.error("API is offline. Start Layer 4 first: python run_layer4.py")
         else:
+            claim_id = manual_claim_id.strip() or f"MANUAL_{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}"
+            witness_count = int(witnesses)
+            if witness_present == "Yes" and witness_count == 0:
+                witness_count = 1
+
             claim = {
+                "claim_id": claim_id,
                 "months_as_customer": months_as_customer,
                 "age": age,
                 "policy_annual_premium": policy_annual_premium,
@@ -149,6 +222,7 @@ with tab2:
                 "incident_type": incident_type,
                 "collision_type": collision_type,
                 "authorities_contacted": authorities,
+                "witnesses": witness_count,
                 "witness_present": witness_present,
                 "police_report_available": police_report,
             }
@@ -163,15 +237,13 @@ with tab2:
                 with r2:
                     claim_card(result)
                     if result.get("explanation"):
-                        st.markdown(f"""
-                        <div style="background:#111418; border:1px solid #1e2530;
-                                    padding:1rem; border-radius:4px; margin-top:0.75rem;">
-                            <div style="font-size:0.65rem; color:#4a5568; letter-spacing:0.1em;
-                                        margin-bottom:0.5rem;">EXPLANATION</div>
-                            <div style="font-size:0.85rem; color:#e2e8f0; line-height:1.6;">
-                                {result['explanation']}
-                            </div>
-                        </div>
-                        """, unsafe_allow_html=True)
+                        safe_expl = html_module.escape(str(result["explanation"])).replace("\n", "<br>")
+                        st.markdown(
+                            '<div style="background:#111418;border:1px solid #1e2530;padding:1rem;border-radius:4px;margin-top:0.75rem;">'
+                            '<div style="font-size:0.65rem;color:#4a5568;letter-spacing:0.1em;margin-bottom:0.5rem;">EXPLANATION</div>'
+                            f'<div style="font-size:0.85rem;color:#e2e8f0;line-height:1.6;">{safe_expl}</div>'
+                            '</div>',
+                            unsafe_allow_html=True,
+                        )
             else:
                 st.error("Analysis failed. Check Layer 4 API logs.")
